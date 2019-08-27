@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+
+body{
+	position:absolute;
+	width: 100%;
+	min-width: 750px;
+	margin: 0px;
+	padding: 0px;	
+	font-family:'Roboto', sans-serif !important;
+	font-size:12px;
+	font-weight: normal;
+	color: #333;
+	background-color:#F5F5F5 !important; /* G3 */
+}
+
+
+h1, h2, h3, h4, h5, h6, p, a, ul, ol, li{	padding: 0px; margin: 0px;	}
+
+h1, h2, h3, h4, h5, h6{	font-weight: bold; margin: 0px 0px 0px 0px; padding: 0px;}
+h1, h2, h3, h4 {		color:#333;}
+
+/*Titulos*/
+h1{			font-size:22px !important;}
+h2{			font-size:18px !important;}
+h3{			font-size:16px !important;}
+h4{			font-size:12px !important;}
+h5, h6{		font-size:3px; color: #FF0;}
+
+p{			font-size:12px; font-weight:normal; color: #333;}

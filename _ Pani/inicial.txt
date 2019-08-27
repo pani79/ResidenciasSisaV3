@@ -1,0 +1,36 @@
+
+
+======================================================================
+configurando
+
+git config --global user.email "emilio.panizza@gmail.com"
+git config --global user.name "pani79"
+git clone https://github.com/pani79/ResidenciasSisaV3.git
+cd ResidenciasSisaV3
+// esto instala el proyecto en la misma carpeta donde estas parado
+ng new ResidenciasSisaV3 --directory ./
+
+? Would you like to add Angular routing? Yes
+? Which stylesheet format would you like to use? CSS
+
+bootstrap - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+npm install bootstrap
+[
+    angular.json:
+
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "styles.scss"
+]
+]
+
+
+
+<p [innerHTML]="_info[4]"></p>
+// permitir links dentro de textos
+
+
+ng g c components/interface/footer
+ng g c components/interface/header
+ng g c components/residencias
+ng g c components/sisa
