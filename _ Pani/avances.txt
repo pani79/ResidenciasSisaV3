@@ -1,0 +1,2 @@
+- menu de accesos flotantes
+- agrupar consultas en una sola seccion

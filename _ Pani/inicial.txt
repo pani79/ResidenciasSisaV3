@@ -30,7 +30,10 @@ npm install bootstrap
 // permitir links dentro de textos
 
 
+ng g c components/commons/pagina-base
 ng g c components/interface/footer
 ng g c components/interface/header
 ng g c components/residencias
+ng g c components/residencias/consultas
+ng g c components/residencias/inscripcion
 ng g c components/sisa

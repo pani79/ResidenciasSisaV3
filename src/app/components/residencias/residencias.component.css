@@ -1,0 +1,38 @@
+ul.residenciasMenu{ 
+    position: relative;
+    width: 100%;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-around; 
+    border: dotted dodgerblue 1px;
+}
+ul.residenciasMenu > li{ 
+    display: flex; 
+    flex-direction: column; 
+    margin: 0px 5px;
+    /* justify-content: space-around;  */
+}
+ul.residenciasMenu > li > a{ 
+    text-align: center;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.5) !important; 
+    border: dotted olivedrab 1px;
+    text-decoration: none;
+}
+ul.residenciasMenu > li > a:hover{ 
+    color: white;
+    background-color: #3fa0d9;
+    cursor: pointer;
+}
+ul.residenciasMenu > li > a:hover *{  color: white; cursor: pointer; }
+
+ul.residenciasMenu > li > a .icono {
+    position: relative;
+    height: 96px;
+    margin-bottom: 10px;
+}
+ul.residenciasMenu > li > a .icono span{ font-size: 96px !important; }
+
+.row{border: dotted red 1px;}
+.container{border: dotted blueviolet 1px;}
