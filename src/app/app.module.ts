@@ -10,6 +10,7 @@ import { FooterComponent } from './components/interface/footer/footer.component'
 import { InscripcionComponent } from './components/residencias/inscripcion/inscripcion.component';
 import { ConsultasComponent } from './components/residencias/consultas/consultas.component';
 import { PaginaBaseComponent } from './components/commons/pagina-base/pagina-base.component';
+import { BotonCtextoeiconoComponent } from './components/commons/boton-ctextoeicono/boton-ctextoeicono.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PaginaBaseComponent } from './components/commons/pagina-base/pagina-bas
     FooterComponent,
     InscripcionComponent,
     ConsultasComponent,
-    PaginaBaseComponent
+    PaginaBaseComponent,
+    BotonCtextoeiconoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,57 @@
+<app-paginabase [info]="infoPaginaBase"></app-paginabase>
+
 <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>Consultas</h1>
-                <p>inscripcion works!</p>
-            </div>
+  <div class="row">
+    <div class="col-12 Formulario">
+
+
+
+
+
+
+      <!-- <form #formConsulta="ngForm" class="col-12"> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+      <form class="col-12">
+
+      <div class="item">
+        <div class="w50_">
+          <input type="text" placeholder="Ingrese código" name="dato">
         </div>
+        <div class="w50_">
+          <app-botonctextoeicono [infoBoton]="botones.buscar" (click)="consultarPreinscripcionConsulta(dato)"></app-botonctextoeicono>
+        </div>
+      </div>
+
+      </form>
+
+      <div *ngIf="consultarInscripcionResultado === true" class="respuesta">
+        {{t_resultado | json }}
+        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                              <s-commons-lista [idLista]='t_resultado' class="row"></s-commons-lista>
+                           -->
+
+      </div>
+
+
+      <div class="listado">
+        {{residentes |json}}
+        <div *ngFor="let residente of _residentes" class="fila">
+          <div>{{residente.id}}</div>
+          <div>{{residente.apellido}}</div>
+          <div>{{residente.nombre}}</div>
+          <div>{{residente.tipodoc}}</div>
+          <div>{{residente.ndoc}}</div>
+          <div>{{residente.paisnacimiento}}</div>
+          <div class="acciones">
+            <div class="al"><span class="icon-bot_ico_acceder_ver"></span></div>
+            <div class="al"><span class="icon-bot_ico_cancelar"></span></div>
+            <div class="al"><span class="icon-askeletor"></span></div>
+          </div>
+        </div>
+      </div>
+
+
+
+
     </div>
+  </div>
+</div>

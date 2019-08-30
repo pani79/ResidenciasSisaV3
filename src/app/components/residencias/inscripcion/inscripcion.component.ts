@@ -7,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InscripcionComponent implements OnInit {
 
+  infoPaginaBase: string[] = [
+    '',
+    'Pre-inscripción a Concurso de Residencias',
+    'reg_residencias',
+    'reg_residencias',
+    'Para facilitar su proceso de inscripción antes de comenzar por favor lea la siguiente información: <a href="https://sisa.msal.gov.ar/sisadoc/index.jsp?id=resid_inscribir" target="_blank">instructivo de inscripción</a>.',
+    'x', // tirandole verdura va al home
+    'https://sisa.msal.gov.ar/sisadoc/index.jsp?id=resid_inscribir'
+  ];
+
   constructor() { }
 
   ngOnInit() {

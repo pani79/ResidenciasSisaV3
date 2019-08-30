@@ -1,11 +1,7 @@
-.container{ 
-    /* min-height: 500px; */ 
-    background-color: pink;
-}
-.col-12{ 
-    /* min-height: 500px; */ 
-    border: blueviolet 1px dotted;
-}
+/* 
+.container{     background-color: pink; }
+.col-12{     border: blueviolet 1px dotted; }
+*/
 
 .pagina_titulo{				
     display: flex;	
