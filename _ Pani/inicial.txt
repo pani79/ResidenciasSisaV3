@@ -31,6 +31,8 @@ npm install bootstrap
 
 
 ng g c components/commons/boton-ctextoeicono
+ng g c components/commons/lista
+ng g c components/commons/lista/contenido
 ng g c components/commons/pagina-base
 ng g c components/interface/footer
 ng g c components/interface/header

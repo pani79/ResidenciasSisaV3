@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 //  Modelo
 import { ResidenciasResidenteModel } from 'src/app/models/residencias_residente';
 
-
 //  Servicios
 import { ResidenciasService } from 'src/app/services/residencias.service';
+
 
 @Component({
   selector: 'app-consultas',
@@ -35,6 +35,8 @@ export class ConsultasComponent implements OnInit {
   constructor(private residenciasService: ResidenciasService) { }
 
   ngOnInit() {
+    this.residenciasService.residentesObtieneTodos()
+      .subscribe(data => this.residentes = data);
   }
 
 }

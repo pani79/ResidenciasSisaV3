@@ -12,12 +12,12 @@
       <!-- <form #formConsulta="ngForm" class="col-12"> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
       <form class="col-12">
 
-      <div class="item">
+      <div class="buscador">
         <div class="w50_">
           <input type="text" placeholder="Ingrese código" name="dato">
         </div>
         <div class="w50_">
-          <app-botonctextoeicono [infoBoton]="botones.buscar" (click)="consultarPreinscripcionConsulta(dato)"></app-botonctextoeicono>
+          <app-c-comons-botonctextoeicono [infoBoton]="botones.buscar" (click)="consultarPreinscripcionConsulta(dato)"></app-c-comons-botonctextoeicono>
         </div>
       </div>
 
@@ -30,11 +30,13 @@
                            -->
 
       </div>
+      
 
-
+      <app-c-commons-lista></app-c-commons-lista>
+      
       <div class="listado">
-        {{residentes |json}}
-        <div *ngFor="let residente of _residentes" class="fila">
+        
+        <div *ngFor="let residente of residentes" class="fila">
           <div>{{residente.id}}</div>
           <div>{{residente.apellido}}</div>
           <div>{{residente.nombre}}</div>
@@ -50,6 +52,7 @@
       </div>
 
 
+      <p> -> {{residentes |json}}</p>
 
 
     </div>

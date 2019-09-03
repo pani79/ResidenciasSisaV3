@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-botonctextoeicono',
+  selector: 'app-c-comons-botonctextoeicono',
   templateUrl: './boton-ctextoeicono.component.html',
   styleUrls: ['./boton-ctextoeicono.component.css']
 })
