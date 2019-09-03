@@ -43,3 +43,18 @@ ng g c components/sisa
 
 
 ng g s services/residencias
+
+
+
+//  Gitlab * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+git add .
+git commit -m "primer comit"
+git push -u origin master
+
+git commit -m "primer comit"
+git push -u origin master
+
+git -c http.sslVerify=false clone https://10.10.103.100/sisa/equipos_nucleares.git
+git config http.sslVerify false
+https://10.10.103.100/users/sign_in

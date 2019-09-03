@@ -7,3 +7,10 @@
     box-shadow: 0 1px 4px rgba(0,0,0,.5) !important; 
     background-color: white;
 }
+
+.listaContenedor > div{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgba(0,0,0,.1); 
+    background-color: lime;
+}
