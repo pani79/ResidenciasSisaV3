@@ -1,2 +1,6 @@
 - menu de accesos flotantes
+
 - agrupar consultas en una sola seccion
+
+- ver cuantos modelos hay en inscripcion
+( residente / concurso / encuesta )

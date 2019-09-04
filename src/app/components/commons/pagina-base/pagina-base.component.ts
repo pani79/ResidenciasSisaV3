@@ -24,18 +24,18 @@ export class PaginaBaseComponent implements OnChanges, OnInit{
   ngOnInit() {
     this.Configura('ngOnInit', this.info);
   }
+
   ngOnChanges(changes: SimpleChanges) {
     const info: SimpleChange = changes.info;
-    console.log('dato anterior : ' + info.previousValue);
-    console.log('dato ahora : ' + info.currentValue);
-
+    //console.log('dato anterior : ' + info.previousValue);
+    //console.log('dato ahora : ' + info.currentValue);
     this._info = info.currentValue;
     this.Configura('ngOnChanges', this._info);
   }
 
 
   Configura(quienLoPide: string, datos: any[]) {
-    console.log(quienLoPide + 'BasicPageComponent => ' + datos);
+    //console.log(quienLoPide + 'BasicPageComponent => ' + datos);
     this.infoPagina.subtitulo = datos[0];
     this.infoPagina.titulo = datos[1];
     this.infoPagina.color = datos[2];
@@ -43,7 +43,7 @@ export class PaginaBaseComponent implements OnChanges, OnInit{
     this.infoPagina.textontroductorio = datos[4];
     this.infoPagina.location = datos[5];
     this.infoPagina.ayuda = datos[6];
-    console.log(quienLoPide + 'BasicPageComponent titulo => ' + this.infoPagina['titulo']);
+    //console.log(quienLoPide + 'BasicPageComponent titulo => ' + this.infoPagina['titulo']);
   }
 
   /*  Para implementar  - - - - - - - - - - - - - - - - - - - - - - - - */

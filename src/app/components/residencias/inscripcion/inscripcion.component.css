@@ -1,0 +1,67 @@
+.panelPasos > .contenedor > div > .contenedorDePaneles {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
+}
+/* .panelPasos { background-color: red !important;} */
+
+
+form h2{ margin: 10px 0 20px 0; }
+
+form .row > .col-12 > .contenedor,
+form .row > .col-md-6 > .contenedor,
+form .row > .col-6 > .contenedor{ 
+	background-color: #e8e8e8; 
+	border-radius: 8px;
+	margin: 10px;
+	padding: 20px;
+	box-shadow: 0 1px 4px rgba(0,0,0,.5) !important;
+}
+
+
+.estadoInscripciones{	display: flex; flex-direction: row; cursor: pointer;  }
+.estadoInscripciones > span{	font-size: 32px; color: #003366; margin-right: 20px; }
+.estadoInscripciones > p{		margin-top: 8px; }
+
+/* Temp */
+
+
+.listado{ 
+	background-color: #e8e8e8; 
+	border-radius: 8px;
+	margin: 10px;
+	padding: 20px;
+	box-shadow: 0 1px 4px rgba(0,0,0,.5) !important;
+}
+
+.fila{
+    display: grid;
+    grid-template-columns: 5% 25% 25% 25% 5% 5% 5% 5%;
+    border-bottom: rgba(0, 0, 0, .2) 2px solid;
+}
+.fila > *{
+    /* border-right: rgba(0, 0, 0, .2) 1px solid;   */
+    padding: 4px 10px;
+}
+.fila > *:last-child{
+    border-right: none;
+}
+.acciones{  display: flex; flex-direction: row; }
+.acciones .al{  
+	width: 24px;
+	height: 24px;
+	background-color: #009933;
+	border-radius: 16px;
+	cursor: pointer;
+}
+.acciones .al > span{ 
+	color: white;
+    font-size: 16px;
+    position: relative;
+    top: 4px;
+    left: 4px;
+}
+
+
+form .item > *,
+form .item > * > *{	border: thin blue dotted;}
+form .item .columna{	display: flex; flex-direction: column; }

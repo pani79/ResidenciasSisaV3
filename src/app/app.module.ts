@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { PaginaBaseComponent } from './components/commons/pagina-base/pagina-bas
 import { BotonCtextoeiconoComponent } from './components/commons/boton-ctextoeicono/boton-ctextoeicono.component';
 import { ListaComponent } from './components/commons/lista/lista.component';
 import { ContenidoComponent } from './components/commons/lista/contenido/contenido.component';
+import { PanelPasosComponent } from './components/commons/panel-pasos/panel-pasos.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { ContenidoComponent } from './components/commons/lista/contenido/conteni
     PaginaBaseComponent,
     BotonCtextoeiconoComponent,
     ListaComponent,
-    ContenidoComponent
+    ContenidoComponent,
+    PanelPasosComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
