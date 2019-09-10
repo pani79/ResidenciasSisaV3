@@ -10,7 +10,7 @@
 
 
       <!-- <form #formConsulta="ngForm" class="col-12"> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-      <form class="col-12">
+      <form class="col-12 formulario">
 
       <div class="buscador">
         <div class="w50_">
@@ -22,6 +22,7 @@
       </div>
 
       </form>
+      <hr>
 
       <div *ngIf="consultarInscripcionResultado === true" class="respuesta">
         {{t_resultado | json }}

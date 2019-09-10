@@ -6,8 +6,13 @@
 <form #inscripcionForm="ngForm"  class="Formulario seccionesPaso">
 
 
-<app-c-commons-panelpasos [infoInput]="infoPasoAPaso"></app-c-commons-panelpasos>
-    
+<app-c-commons-panelpasos [infoInput]="infoPasoAPaso" (salida)="cPanelPasos_activaPaso($event)"></app-c-commons-panelpasos>
+   
+
+
+
+
+
 <!-- Paso 1 ~ Formulario residente - - - - - - - - - - - - - - - - - - - - - - - - - - i -->
 <div class="container" [style.display]="pasoActual === 0 ? 'block': 'none'">
 
@@ -29,6 +34,7 @@
   <div class="row">
     <div class="col-12 col-md-6">
       <div class="contenedor">
+
         <h3>Datos generales</h3>
         <div class="item">
           <div class="w30_">
@@ -517,9 +523,11 @@
             </select>
           </div>
         </div>
+
       </div>
     </div>
   </div>
+  
 </div>
 <!-- Paso 1 ~ Formulario residente - - - - - - - - - - - - - - - - - - - - - - - - - - f -->
 

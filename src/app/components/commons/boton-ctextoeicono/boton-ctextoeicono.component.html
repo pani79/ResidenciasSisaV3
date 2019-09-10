@@ -1,3 +1,4 @@
-<div class="boton {{infoBoton[0]}}">
-    <span class="icon-{{infoBoton[1]}}"></span>{{infoBoton[2]}}
+<div class="{{infoBoton[0]}}">
+    <span [style.display]="infoBoton[1] ? 'flex': 'none'" class="icon-{{infoBoton[1]}}"></span>
+    <label [style.display]="infoBoton[2] ? 'flex': 'none'">{{infoBoton[2]}}</label>
 </div>

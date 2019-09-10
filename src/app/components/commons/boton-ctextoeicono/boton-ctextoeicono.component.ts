@@ -9,7 +9,7 @@ export class BotonCtextoeiconoComponent implements OnInit {
 
   @Input() infoBoton: string[];
 
-  tipo = 'boton_pos';
+  tipo = 'boton boton_general';
   icono = 'bot_ico_aceptar';
   texto = 'Enviar datos';
 

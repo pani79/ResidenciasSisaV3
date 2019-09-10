@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 //  Modelos
-import { ResidenciasInscripcionModel } from 'src/app/models/residencias_inscripcion';
-import { ResidenciasPreinscripcionEncuestaModel } from 'src/app/models/residencias_inscripcion_encuesta';
+import { ResidenciasPreinscripcionInscripcionModel } from 'src/app/models/residencias_preinscripcion_inscripcion';
+import { ResidenciasPreinscripcionResidenteModel } from 'src/app/models/residencias_preinscripcion_residente';
+import { ResidenciasPreinscripcionEncuestaModel } from 'src/app/models/residencias_preinscripcion_encuesta';
 
 @Component({
   selector: 'app-inscripcion',
@@ -23,15 +24,15 @@ export class InscripcionComponent implements OnInit {
   ];
 
   botones = {
-    bRenaper: ['boton_general', 'bot_ico_renaper', 'Usar Reanper'],
-    bSisa: ['boton_general', 'ico_sisa_icono', 'Usar usuario SISA'],
+    bRenaper: ['boton boton_general', 'bot_ico_renaper'],
+    bSisa: ['boton boton_general', 'ico_sisa_icono'],
     enviarFormulario: ['boton_pos', 'bot_ico_aceptar', 'Enviar formulario de preinscripción']
   };
   formularioCompleto = false;
 
 
   // Panel paso a paso    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  
+
   pasoActual = 0;
   infoPasoAPaso: any[] = [
     {
@@ -70,83 +71,59 @@ export class InscripcionComponent implements OnInit {
   _residencias: ResidenciasResidenciasModel[];
  */
 
-inscripcionModelo = new ResidenciasInscripcionModel (
-    null,     // public a_concursaId: number,
-    null,    // public a_concursaTipo: boolean,
-    null,     // public a_concursaProvincia: number,
-    null,     // public a_concursaInstitucion: number,
-    null,     // public a_concursaEspecialidad: number,
+inscripcionModelo = new ResidenciasPreinscripcionInscripcionModel (
+  null,     // public a_concursaId: number,
+  null,    // public a_concursaTipo: boolean,
+  null,     // public a_concursaProvincia: number,
+  null,     // public a_concursaInstitucion: number,
+  null,     // public a_concursaEspecialidad: number,
 
-    null,     // public b_concursotipo: number,
-    null,     // public b_concursosubtipo: number
+  null,     // public b_concursotipo: number,
+  null     // public b_concursosubtipo: number
+);
 
-    null,     // public c_concurso: number,
+residentenModelo = new ResidenciasPreinscripcionResidenteModel (
+  null,     // public id: number,
+  null,     // public e_nombre: string,
+  null,     // public e_apellido: string,
+  null,     // public e_numerodocumento: number,
+  null,     // public e_sexo: number,
+  null,     // public e_estadocivil: number,
+  null,     // public e_hijos: number
 
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],     // public d_razoneseleccion: number[],
-    null,     // public d_dondeseencontrara: number,
-    null,     // public d_ambitodesarrollo: number,
+  null,     // nacionalidad: number,
+  null,     // nacimientoFecha: number,
+  null,     // nacimientoPais: number,
+  null,     // nacimientoProvincia: number,
+  null,     // email: string,
+  null,     // domicilioProvincia: number,
+  null,     // domicilioLocalidad: number,
+  null,     // domicilioDomicilio: number,
+  null,     // domicilioNro: number,
+  null,     // domicilioPiso: number,
+  null,     // domicilioDepto: number,
+  null,     // domicilioCP: number,
+  null,     // domicilioTelATipo: number,
+  null,     // domicilioTelANro: number,
+  null,     // domicilioTelBTipo: number,
+  null,     // domicilioTelBNro: number,
+  null,     // domicilioTelCTipo: number,
+  null,     // domicilioTelCNro: number,
+  null,     // domicilioTelDTipo: number,
+  null,     // domicilioTelDNro: number,
+  null,     // profesionTitulo: number,
+  null,     // profesionTipoMatricula: number,
+  null,     // profesionAnoIngreso: number,
+  null,     // profesionPromedio: number,
+  null      // profesionTituloEnTramite: boolean
+);
 
-    null,     // public e_nombre: string,
-    null,     // public e_apellido: string,
-    null,     // public e_numerodocumento: number,
-    null,     // public e_sexo: number,
-    null,     // public e_estadocivil: number,
-    null,     // public e_hijos: number
-
-    null,     // nacionalidad: number,
-    null,     // nacimientoFecha: number,
-    null,     // nacimientoPais: number,
-    null,     // nacimientoProvincia: number,
-    null,     // email: string,
-    null,     // domicilioProvincia: number,
-    null,     // domicilioLocalidad: number,
-    null,     // domicilioDomicilio: number,
-    null,     // domicilioNro: number,
-    null,     // domicilioPiso: number,
-    null,     // domicilioDepto: number,
-    null,     // domicilioCP: number,
-    null,     // domicilioTelATipo: number,
-    null,     // domicilioTelANro: number,
-    null,     // domicilioTelBTipo: number,
-    null,     // domicilioTelBNro: number,
-    null,     // domicilioTelCTipo: number,
-    null,     // domicilioTelCNro: number,
-    null,     // domicilioTelDTipo: number,
-    null,     // domicilioTelDNro: number,
-    null,     // profesionTitulo: number,
-    null,     // profesionTipoMatricula: number,
-    null,     // profesionAnoIngreso: number,
-    null,     // profesionPromedio: number,
-    null      // profesionTituloEnTramite: boolean
-  );
-
-  encuestaModelo = new ResidenciasPreinscripcionEncuestaModel (
-    null,     // nacionalidad: number,
-    null,     // nacimientoFecha: number,
-    null,     // nacimientoPais: number,
-    null,     // nacimientoProvincia: number,
-    null,     // email: string,
-    null,     // domicilioProvincia: number,
-    null,     // domicilioLocalidad: number,
-    null,     // domicilioDomicilio: number,
-    null,     // domicilioNro: number,
-    null,     // domicilioPiso: number,
-    null,     // domicilioDepto: number,
-    null,     // domicilioCP: number,
-    null,     // domicilioTelATipo: number,
-    null,     // domicilioTelANro: number,
-    null,     // domicilioTelBTipo: number,
-    null,     // domicilioTelBNro: number,
-    null,     // domicilioTelCTipo: number,
-    null,     // domicilioTelCNro: number,
-    null,     // domicilioTelDTipo: number,
-    null,     // domicilioTelDNro: number,
-    null,     // profesionTitulo: number,
-    null,     // profesionTipoMatricula: number,
-    null,     // profesionAnoIngreso: number,
-    null,     // profesionPromedio: number,
-    null      // profesionTituloEnTramite: boolean
-    );
+encuestaModelo = new ResidenciasPreinscripcionEncuestaModel (
+  null,                                  // public d_razoneseleccion: number[],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],    // public d_razoneseleccion: number[],
+  null,                                // public d_dondeseencontrara: number,
+  null                                // public d_ambitodesarrollo: number,
+);
 
   validacionesCampos: any[] = [
     { //0  _a_concursaTipo
@@ -202,6 +179,209 @@ inscripcionModelo = new ResidenciasInscripcionModel (
   constructor() { }
 
   ngOnInit() {
+  }
+
+  
+  //  Panel Pasos - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+  cPanelPasos_activaPaso(evento: number): void {
+    console.log('cPanelPasos_activaPaso <-> ' + evento);
+    if (this.pasoActual !== evento && this.cPanelPasos_validaPaso(evento)) {
+      this.infoPasoAPaso.forEach(element => {element['seleccionado'] = false; });
+      this.infoPasoAPaso[evento]['seleccionado'] = true;
+      this.pasoActual = evento;
+    }
+  }
+
+  cPanelPasos_validaPaso(pasoNumero: number): boolean {
+    let respuesta = true;
+    console.log('validaPaso - > ' + respuesta);
+    console.log('validaPaso - > ' + pasoNumero + ' / ' + this.pasoActual);
+
+    switch (this.pasoActual) {
+
+      case 0:
+        this.validacionesCampos[0]['completado'] = false;
+        this.validacionesCampos[1]['completado'] = false;
+        this.validacionesCampos[2]['completado'] = false;
+        this.validacionesCampos[3]['completado'] = false;
+
+        break;
+/* 
+      case 0:
+        this.validacionesCampos[0]['completado'] = false;
+        this.validacionesCampos[1]['completado'] = false;
+        this.validacionesCampos[2]['completado'] = false;
+        this.validacionesCampos[3]['completado'] = false;
+
+        if (this.inscripcionModelo._a_concursaTipo === null) {
+          respuesta = false;
+          this.validacionesCampos[0]['completado'] = false;
+          console.log(' A [ FALSE ]');
+        } else {
+          this.validacionesCampos[0]['completado'] = true;
+          console.log(' A [ OK ]');
+        }
+        if (this.inscripcionModelo._a_concursaEspecialidad === null) {
+          respuesta = false;
+          this.validacionesCampos[3]['completado'] = false;
+          console.log(' C [ FALSE ]');
+        } else {
+          this.validacionesCampos[3]['completado'] = true;
+          console.log(' C [ OK ]');
+        }
+
+        if (this.inscripcionModelo._a_concursaTipo === true) {
+          console.log(' B ');
+          if (this.inscripcionModelo._a_concursaProvincia === null) {
+            respuesta = false;
+            this.validacionesCampos[1]['completado'] = false;
+            console.log(' B [' + this.inscripcionModelo._a_concursaTipo + '] -> ' + this.inscripcionModelo._a_concursaProvincia);
+          } else {
+            this.validacionesCampos[1]['completado'] = true;
+            console.log(' B [ OK ]');
+          }
+        } else if (this.inscripcionModelo._a_concursaTipo === false) {
+          console.log(' B ');
+          if (this.inscripcionModelo._a_concursaInstitucion === null) {
+            respuesta = false;
+            this.validacionesCampos[2]['completado'] = false;
+            console.log(' B [' + this.inscripcionModelo._a_concursaTipo + '] -> ' + this.inscripcionModelo._a_concursaInstitucion);
+          } else {
+            this.validacionesCampos[2]['completado'] = true;
+            console.log(' B [ OK ]');
+          }
+        }  else {
+          console.log(' B x ' + this.inscripcionModelo._a_concursaTipo);
+        }
+
+        if (respuesta === true) {
+          this._infoPasoAPaso[0]['completado'] = true;
+          this._infoPasoAPaso[1]['habilitado'] = true;
+          console.log(' VALIDA paso 1 OK');
+        } else{ this._infoPasoAPaso[0]['completado'] = false;}
+        break;
+
+
+      case 1:
+        this.validacionesCampos[4]['completado'] = false;
+        this.validacionesCampos[5]['completado'] = false;
+        if (this.inscripcionModelo._b_concursotipo === null) {
+          respuesta = false;
+          this.validacionesCampos[4]['completado'] = false;
+          console.log(' A [ FALSE ]');
+        } else {
+          this.validacionesCampos[4]['completado'] = true;
+          console.log(' A [ OK ]');
+        }
+        if (this.inscripcionModelo._b_concursosubtipo === null) {
+          respuesta = false;
+          this.validacionesCampos[5]['completado'] = false;
+          console.log(' A [ FALSE ]');
+        } else {
+          this.validacionesCampos[5]['completado'] = true;
+          console.log(' A [ OK ]');
+        }
+        if (respuesta === true) { 
+          this._infoPasoAPaso[1]['completado'] = true;
+          this._infoPasoAPaso[2]['habilitado'] = true;
+          console.log(' VALIDA paso 2 OK');
+        } else{ this._infoPasoAPaso[1]['completado'] = false;}
+        break;
+
+      case 2:
+        this.validacionesCampos[6]['completado'] = false;
+        if (this.inscripcionModelo._c_concurso === null) {
+          respuesta = false;
+          this.validacionesCampos[6]['completado'] = false;
+          console.log(' A [ FALSE ]');
+        } else {
+          this.validacionesCampos[6]['completado'] = true;
+          console.log(' A [ OK ]');
+        }
+        if (respuesta === true) {
+          this._infoPasoAPaso[2]['completado'] = true;
+          this._infoPasoAPaso[3]['habilitado'] = true;
+          console.log(' VALIDA paso 3 OK'); 
+        } else{ this._infoPasoAPaso[2]['completado'] = false;}
+        break;
+
+      case 3:
+        this.validacionesCampos[7]['completado'] = false;
+        this.validacionesCampos[8]['completado'] = false;
+        this.validacionesCampos[9]['completado'] = false;
+        
+        console.log(' A -> ' + this.inscripcionModelo._d_razoneseleccion[0]);
+        let resultadorazones = 0;
+        this.inscripcionModelo._d_razoneseleccion.forEach(v => resultadorazones += Number(v));
+        if (resultadorazones !== 100) {
+          respuesta = false;
+          this.validacionesCampos[7]['completado'] = false;
+          console.log(' A [ ERROR ] -> ' + resultadorazones);
+        } else {
+          this.validacionesCampos[7]['completado'] = true;
+          console.log(' A [ OK ] -> ' + resultadorazones);
+        }
+        
+        if (this.inscripcionModelo._d_dondeseencontrara === null) {
+          respuesta = false;
+          this.validacionesCampos[8]['completado'] = false;
+          console.log(' B [ FALSE ]');
+        } else {
+          this.validacionesCampos[8]['completado'] = true;
+          console.log(' B [ OK ]');
+        }
+        if (this.inscripcionModelo._d_ambitodesarrollo === null) {
+          respuesta = false;
+          this.validacionesCampos[9]['completado'] = false;
+          console.log(' C [ FALSE ]');
+        } else {
+          this.validacionesCampos[9]['completado'] = true;
+          console.log(' C [ OK ]');
+        }
+        if (respuesta === true) {
+          this._infoPasoAPaso[3]['completado'] = true;
+          this._infoPasoAPaso[4]['habilitado'] = true;
+          console.log(' VALIDA paso 3 OK');
+        } else { this._infoPasoAPaso[3]['completado'] = false;}
+        break;
+
+
+
+      case 4:
+        this.validacionesCampos[10]['completado'] = false;
+        this.validacionesCampos[11]['completado'] = false;
+        
+        if (this.inscripcionModelo._e_nombre === null) {
+          respuesta = false;
+          this.validacionesCampos[10]['completado'] = false;
+          console.log(' A [ FALSE ]');
+        } else {
+          this.validacionesCampos[10]['completado'] = true;
+          console.log(' A [ OK ]');
+        }
+        if (this.inscripcionModelo._e_apellido === null) {
+          respuesta = false;
+          this.validacionesCampos[11]['completado'] = false;
+          console.log(' B [ FALSE ]');
+        } else {
+          this.validacionesCampos[11]['completado'] = true;
+          console.log(' B [ OK ]');
+        }
+        console.log('validaPaso 5 (' + pasoNumero + ') ');
+        break;
+     */
+      default:
+        console.log('validaPaso ERROR - > ' + pasoNumero + ' // ' + respuesta);
+        break;
+    }
+
+    if (this.infoPasoAPaso[pasoNumero]['habilitado'] !== true) { 
+      respuesta = false; 
+    }
+    console.log('la respuesta fue ' + respuesta);
+    return respuesta;
   }
 
 }

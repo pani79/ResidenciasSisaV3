@@ -1,5 +1,14 @@
-export class ResidenciasPreinscripcionEncuestaModel {
-  constructor(
+export class ResidenciasPreinscripcionResidenteModel {
+    constructor(
+
+    public id: number,
+    public nombre: string,
+    public apellido: string,
+    public numerodocumento: number,
+    public sexo: number,
+    public estadocivil: number,
+    public hijos: number,
+
     public nacionalidad: number,
     public nacimientoFecha: number,
     public nacimientoPais: number,
@@ -26,5 +35,5 @@ export class ResidenciasPreinscripcionEncuestaModel {
     public profesionPromedio: number,
     public profesionTituloEnTramite: boolean
 
-  ) {}
+    ) {}
 }

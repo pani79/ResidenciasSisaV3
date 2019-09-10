@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 //  Modelos
-import { ResidenciasResidenteModel } from '../models/residencias_residente';
+import { ResidenciasPreinscripcionResidenteModel } from '../models/residencias_preinscripcion_residente';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class ResidenciasService {
 
   constructor(private http: HttpClient) { }
 
-  residentesObtieneTodos(): Observable<ResidenciasResidenteModel[]> {
-    return this.http.get<ResidenciasResidenteModel[]>('http://localhost:8080/residentes/all');
+  residentesObtieneTodos(): Observable<ResidenciasPreinscripcionResidenteModel[]> {
+    return this.http.get<ResidenciasPreinscripcionResidenteModel[]>('http://localhost:8080/residentes/all');
   }
 
 }

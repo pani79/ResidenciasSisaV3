@@ -18,9 +18,10 @@ form .row > .col-6 > .contenedor{
 }
 
 /* form > *{	border: thin orange dotted;} */
-
+/* 
 form .item > *,
 form .item > * > *{	border: thin blue dotted;}
+ */
 form .item .columna{	display: flex; flex-direction: column; }
 
 .estadoInscripciones{	display: flex; flex-direction: row; cursor: pointer;  }
@@ -28,7 +29,7 @@ form .item .columna{	display: flex; flex-direction: column; }
 .estadoInscripciones > p{		margin-top: 8px; }
 
 /* Temp */
-
+h2{	border: thin orange dotted;}
 
 .listado{ 
 	background-color: #e8e8e8; 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 //  Modelo
-import { ResidenciasResidenteModel } from 'src/app/models/residencias_residente';
+import { ResidenciasPreinscripcionResidenteModel } from '../../../models/residencias_preinscripcion_residente';
 
 //  Servicios
 import { ResidenciasService } from 'src/app/services/residencias.service';
@@ -26,11 +26,11 @@ export class ConsultasComponent implements OnInit {
     'https://sisa.msal.gov.ar/sisadoc/index.jsp?id=resid_home'
   ];
   botones = {
-    buscar: ['boton_general', 'bot_ico_buscar', 'Buscar inscripción']
+    buscar: ['boton boton_general', 'bot_ico_buscar', 'Buscar inscripción']
   };
 
   //  Variables particulares . . . . . . . . . . . . . . . . . . . . .
-  residentes: ResidenciasResidenteModel[];
+  residentes: ResidenciasPreinscripcionResidenteModel[];
 
   constructor(private residenciasService: ResidenciasService) { }
 
