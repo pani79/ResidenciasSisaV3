@@ -17,6 +17,11 @@ form .row > .col-6 > .contenedor{
 	box-shadow: 0 1px 4px rgba(0,0,0,.5) !important;
 }
 
+/* form > *{	border: thin orange dotted;} */
+
+form .item > *,
+form .item > * > *{	border: thin blue dotted;}
+form .item .columna{	display: flex; flex-direction: column; }
 
 .estadoInscripciones{	display: flex; flex-direction: row; cursor: pointer;  }
 .estadoInscripciones > span{	font-size: 32px; color: #003366; margin-right: 20px; }
@@ -62,6 +67,56 @@ form .row > .col-6 > .contenedor{
 }
 
 
-form .item > *,
-form .item > * > *{	border: thin blue dotted;}
-form .item .columna{	display: flex; flex-direction: column; }
+.Formulario .item{  display: flex; flex-direction: row !important; margin-bottom: 8px; }
+.Formulario .item > *{  display: inline-flex; margin-left: 8px; }
+.Formulario .item > *:first-child{  margin-left: 0px; }
+.Formulario .item > * > *{          margin: auto 0px !important; }
+
+.Formulario .item .w5_{     width: 5% !important; }
+.Formulario .item .w10_{		width: 10% !important; }
+.Formulario .item .w15_{		width: 15% !important; }
+.Formulario .item .w20_{		width: 20% !important; }
+.Formulario .item .w25_{		width: 25% !important; }
+.Formulario .item .w30_{		width: 30% !important; }
+.Formulario .item .w35_{		width: 35% !important; }
+.Formulario .item .w40_{		width: 40% !important; }
+.Formulario .item .w50_{		width: 50% !important; }
+.Formulario .item .w60_{		width: 60% !important; }
+.Formulario .item .w65_{		width: 65% !important; }
+.Formulario .item .w70_{		width: 70% !important; }
+.Formulario .item .w75_{		width: 75% !important; }
+.Formulario .item .w80_{		width: 80% !important; }
+.Formulario .item .w85_{		width: 85% !important; }
+.Formulario .item .w90_{		width: 90% !important; }
+.Formulario .item .w95_{		width: 95% !important; }
+.Formulario .item .w100_{		width: 100% !important; }
+
+.Formulario .item p,
+.Formulario .item label{      width: 100%; text-align: right; }
+.Formulario .item input{      
+  width: 100%; 
+  padding: 9px 10px; 
+  background-color: white; 
+}
+.Formulario .item input,
+.Formulario .item select{           
+  width: 100%; 
+  padding: 9px 10px;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 4px;  
+}
+.Formulario .item input > *{  color: black; }
+
+.Formulario .item .rb{      display: flex; flex-direction: column; }
+.Formulario .item .rb > *{  display: flex; flex-direction: row; }
+.Formulario .item .rb > * input{  width: 20px; margin-right: 4px; }
+.Formulario .item .rb > * label{  text-align: left; }
+
+/* Debug
+.Formulario .item,
+.Formulario .item > *,
+.Formulario .item > * > *{  border: dotted 1px gray; }
+ */
+
+.Formulario .menuFormulario{  margin: 20px 0 40px 0; }
+

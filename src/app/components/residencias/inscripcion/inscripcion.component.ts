@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-
-
 //  Modelos
 import { ResidenciasInscripcionModel } from 'src/app/models/residencias_inscripcion';
+import { ResidenciasPreinscripcionEncuestaModel } from 'src/app/models/residencias_inscripcion_encuesta';
 
 @Component({
   selector: 'app-inscripcion',
@@ -23,6 +22,11 @@ export class InscripcionComponent implements OnInit {
     'https://sisa.msal.gov.ar/sisadoc/index.jsp?id=resid_inscribir'
   ];
 
+  botones = {
+    bRenaper: ['boton_general', 'bot_ico_renaper', 'Usar Reanper'],
+    bSisa: ['boton_general', 'ico_sisa_icono', 'Usar usuario SISA'],
+    enviarFormulario: ['boton_pos', 'bot_ico_aceptar', 'Enviar formulario de preinscripción']
+  };
   formularioCompleto = false;
 
 
@@ -31,23 +35,16 @@ export class InscripcionComponent implements OnInit {
   pasoActual = 0;
   infoPasoAPaso: any[] = [
     {
-      titlulo: 'Provincia o Institución',
+      titlulo: 'Formulario de residente',
       subtitulo: null,
-      descripcion: 'Seleccione Provincia o Institución donde desea inscribirse',
-      seleccionado: true,
-      completado: false,
-      habilitado: true
-    }, {
-      titlulo: 'Concurso',
-      subtitulo: null,
-      descripcion: 'Elegir tipo de concurso',
+      descripcion: 'Completar formulario',
       seleccionado: false,
       completado: false,
       habilitado: false
     }, {
-      titlulo: 'Confirmar',
+      titlulo: 'Concurso de inscripcion',
       subtitulo: null,
-      descripcion: 'Confirmar eleccion',
+      descripcion: 'Elegir tipo de concurso',
       seleccionado: false,
       completado: false,
       habilitado: false
@@ -55,13 +52,6 @@ export class InscripcionComponent implements OnInit {
       titlulo: 'Encuesta',
       subtitulo: null,
       descripcion: 'Completar encuesta (opcional)',
-      seleccionado: false,
-      completado: false,
-      habilitado: false
-    }, {
-      titlulo: 'Formulario',
-      subtitulo: null,
-      descripcion: 'Completar formulario',
       seleccionado: false,
       completado: false,
       habilitado: false
@@ -103,32 +93,60 @@ inscripcionModelo = new ResidenciasInscripcionModel (
     null,     // public e_estadocivil: number,
     null,     // public e_hijos: number
 
-    null,     // e_nacionalidad: number,
-    null,     // e_nacimientoFecha: number,
-    null,     // e_nacimientoPais: number,
-    null,     // e_nacimientoProvincia: number,
-    null,     // e_email: string,
-    null,     // e_domicilioProvincia: number,
-    null,     // e_domicilioLocalidad: number,
-    null,     // e_domicilioDomicilio: number,
-    null,     // e_domicilioNro: number,
-    null,     // e_domicilioPiso: number,
-    null,     // e_domicilioDepto: number,
-    null,     // e_domicilioCP: number,
-    null,     // e_domicilioTelATipo: number,
-    null,     // e_domicilioTelANro: number,
-    null,     // e_domicilioTelBTipo: number,
-    null,     // e_domicilioTelBNro: number,
-    null,     // e_domicilioTelCTipo: number,
-    null,     // e_domicilioTelCNro: number,
-    null,     // e_domicilioTelDTipo: number,
-    null,     // e_domicilioTelDNro: number,
-    null,     // e_profesionTitulo: number,
-    null,     // e_profesionTipoMatricula: number,
-    null,     // e_profesionAnoIngreso: number,
-    null,     // e_profesionPromedio: number,
-    null      // e_profesionTituloEnTramite: boolean
+    null,     // nacionalidad: number,
+    null,     // nacimientoFecha: number,
+    null,     // nacimientoPais: number,
+    null,     // nacimientoProvincia: number,
+    null,     // email: string,
+    null,     // domicilioProvincia: number,
+    null,     // domicilioLocalidad: number,
+    null,     // domicilioDomicilio: number,
+    null,     // domicilioNro: number,
+    null,     // domicilioPiso: number,
+    null,     // domicilioDepto: number,
+    null,     // domicilioCP: number,
+    null,     // domicilioTelATipo: number,
+    null,     // domicilioTelANro: number,
+    null,     // domicilioTelBTipo: number,
+    null,     // domicilioTelBNro: number,
+    null,     // domicilioTelCTipo: number,
+    null,     // domicilioTelCNro: number,
+    null,     // domicilioTelDTipo: number,
+    null,     // domicilioTelDNro: number,
+    null,     // profesionTitulo: number,
+    null,     // profesionTipoMatricula: number,
+    null,     // profesionAnoIngreso: number,
+    null,     // profesionPromedio: number,
+    null      // profesionTituloEnTramite: boolean
   );
+
+  encuestaModelo = new ResidenciasPreinscripcionEncuestaModel (
+    null,     // nacionalidad: number,
+    null,     // nacimientoFecha: number,
+    null,     // nacimientoPais: number,
+    null,     // nacimientoProvincia: number,
+    null,     // email: string,
+    null,     // domicilioProvincia: number,
+    null,     // domicilioLocalidad: number,
+    null,     // domicilioDomicilio: number,
+    null,     // domicilioNro: number,
+    null,     // domicilioPiso: number,
+    null,     // domicilioDepto: number,
+    null,     // domicilioCP: number,
+    null,     // domicilioTelATipo: number,
+    null,     // domicilioTelANro: number,
+    null,     // domicilioTelBTipo: number,
+    null,     // domicilioTelBNro: number,
+    null,     // domicilioTelCTipo: number,
+    null,     // domicilioTelCNro: number,
+    null,     // domicilioTelDTipo: number,
+    null,     // domicilioTelDNro: number,
+    null,     // profesionTitulo: number,
+    null,     // profesionTipoMatricula: number,
+    null,     // profesionAnoIngreso: number,
+    null,     // profesionPromedio: number,
+    null      // profesionTituloEnTramite: boolean
+    );
 
   validacionesCampos: any[] = [
     { //0  _a_concursaTipo
@@ -180,9 +198,6 @@ inscripcionModelo = new ResidenciasInscripcionModel (
       info: 'Ingrese su apellido'
     }
   ];
-  botones = {
-    enviarFormulario: ['boton_pos', 'bot_ico_aceptar', 'Enviar formulario de preinscripción']
-  };
 
   constructor() { }
 

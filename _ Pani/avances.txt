@@ -4,3 +4,7 @@
 
 - ver cuantos modelos hay en inscripcion
 ( residente / concurso / encuesta )
+
+- cambiar el orden de las secciones de la inscripción (poniendo el formulario del residente al principio)
+- ver la posibilidad de traer esos datos de renaper y/o de obtener esos datos si el usuario tiene cuenta en SISA
+- fusionar los pasos (actuales) 2 y 3, que son la selección del concurso y la especialidad con la confirmación.
