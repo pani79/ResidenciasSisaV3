@@ -1,4 +1,14 @@
-.panelPasos > .contenedor > div > .contenedorDePaneles {
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+  
+  
+  .panelPasos > .contenedor > div > .contenedorDePaneles {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
 }

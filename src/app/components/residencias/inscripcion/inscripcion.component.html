@@ -36,6 +36,43 @@
       <div class="contenedor">
 
         <h3>Datos generales</h3>
+
+        <div class="example-container">
+            <mat-form-field>
+              <input matInput placeholder="Nombres" [formControl]="email" required>
+              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="example-container">
+              <mat-form-field>
+                <input matInput placeholder="Apellidos" [formControl]="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="example-container">
+                <label>Tipo</label>
+                <p>DNI</p>
+                <mat-form-field>
+                  <input matInput placeholder="Número" [formControl]="email" required>
+                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+              </div>
+
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Apellidos">
+          </mat-form-field>        
+        </div>
+  
+        
+        <div class="example-container">
+            <mat-form-field>
+              <input matInput placeholder="Nombres">
+            </mat-form-field>        
+            <mat-form-field>
+              <input matInput placeholder="Apellidos">
+            </mat-form-field>        
+          </div>
         <div class="item">
           <div class="w30_">
             <p>Nombres</p>

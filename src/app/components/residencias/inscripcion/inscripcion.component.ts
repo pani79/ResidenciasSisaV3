@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 //  Modelos
 import { ResidenciasPreinscripcionInscripcionModel } from 'src/app/models/residencias_preinscripcion_inscripcion';
@@ -11,6 +12,11 @@ import { ResidenciasPreinscripcionEncuestaModel } from 'src/app/models/residenci
   styleUrls: ['./inscripcion.component.css']
 })
 export class InscripcionComponent implements OnInit {
+
+  residente = new FormControl('');
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+
 
   infoPaginaBase: string[] = [
     '',
@@ -180,7 +186,11 @@ encuestaModelo = new ResidenciasPreinscripcionEncuestaModel (
 
   ngOnInit() {
   }
-
+ getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+        this.email.hasError('email') ? 'Not a valid email' :
+            '';
+  }
   
   //  Panel Pasos - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 

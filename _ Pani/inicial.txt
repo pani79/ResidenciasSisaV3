@@ -24,7 +24,9 @@ npm install bootstrap
 ]
 ]
 
+Material - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+npm install --save @angular/material @angular/cdk @angular/animations
 
 <p [innerHTML]="_info[4]"></p>
 // permitir links dentro de textos
