@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormArray, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 //  Modelos
 import { ResidenciasPreinscripcionInscripcionModel } from 'src/app/models/residencias_preinscripcion_inscripcion';
@@ -13,8 +14,18 @@ import { ResidenciasPreinscripcionEncuestaModel } from 'src/app/models/residenci
 })
 export class InscripcionComponent implements OnInit {
 
+  inscripcionConcurso: FormGroup;
+  nombre: string = '';
+  apellido: string = '';
+  nDocumento: string = '';
+  sexo: string = '';
+  estadoCivil: string = '';
+  hijos: string = '';
+  email: string = '';
+
   residente = new FormControl('');
-  email = new FormControl('', [Validators.required, Validators.email]);
+  //email = new FormControl('', [Validators.required, Validators.email]);
+  //nombre = new FormControl('');
 
 
 
@@ -182,16 +193,26 @@ encuestaModelo = new ResidenciasPreinscripcionEncuestaModel (
     }
   ];
 
-  constructor() { }
+  constructor( private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.inscripcionConcurso = this.fb.group({
+      nombre: [''],
+      apellido: [''],
+      nDocumento: [''],
+      sexo: [''],
+      estadoCivil: [''],
+      hijos: [''],
+      email: ['']
+    });
   }
+/* 
  getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
         this.email.hasError('email') ? 'Not a valid email' :
             '';
   }
-  
+   */
   //  Panel Pasos - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 
@@ -392,6 +413,10 @@ encuestaModelo = new ResidenciasPreinscripcionEncuestaModel (
     }
     console.log('la respuesta fue ' + respuesta);
     return respuesta;
+  }
+
+  formularioEnviar() {
+    alert('-> ' + this.inscripcionConcurso.value);
   }
 
 }

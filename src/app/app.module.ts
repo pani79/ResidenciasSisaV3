@@ -8,7 +8,10 @@ import { AppComponent } from './app.component';
 
 //  Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 //  Componentes
 import { SisaComponent } from './components/sisa/sisa.component';
@@ -45,7 +48,7 @@ import { PanelPasosComponent } from './components/commons/panel-pasos/panel-paso
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatNativeDateModule, MatInputModule, MatSelectModule, MatDatepickerModule
   ],
   exports: [MatInputModule],
   providers: [],

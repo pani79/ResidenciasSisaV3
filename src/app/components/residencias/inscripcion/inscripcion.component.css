@@ -1,14 +1,20 @@
-.example-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .example-container > * {
-    width: 100%;
-  }
-  
-  
-  .panelPasos > .contenedor > div > .contenedorDePaneles {
+
+.input-container {      display: flex;  flex-direction: column;}
+.input-container > * {  width: 100%; }
+
+.input-container.varios {       display: flex;  flex-direction: row;}
+.input-container.varios > * {   width: 100%;  margin: 0 10px;}
+.input-container.varios > *:first-child {  margin-left: 0px; }
+.input-container.varios > *:last-child {  margin-right: 0px; }
+
+.input-container.varios > label {  text-align: right;  padding-top: 13px;}
+
+.input-container.varios > .w10 {  width: 10%; }
+.input-container.varios > .w20 {  width: 20%; }
+.input-container.varios > .w45 {  width: 45%; }
+.input-container.varios > .w80 {  width: 80%; }
+
+.panelPasos > .contenedor > div > .contenedorDePaneles {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
 }

@@ -2,14 +2,14 @@
 <div class="container">
 
     
-<!-- Formulario i -->
-<form #inscripcionForm="ngForm"  class="Formulario seccionesPaso">
 
 
 <app-c-commons-panelpasos [infoInput]="infoPasoAPaso" (salida)="cPanelPasos_activaPaso($event)"></app-c-commons-panelpasos>
    
 
 
+<!-- Formulario i -->
+<form [formGroup]="inscripcionConcurso" (ngsubmit)="formularioEnviar(inscripcionConcurso.value)" class="Formulario seccionesPaso">
 
 
 
@@ -23,7 +23,7 @@
           <div class="contenedor">
             <h4>Opciones de carga de datos biometricos</h4>
             <div class="contenedorDeBotones inverso"><!--  [style.display]="_pasoActual === 4 ? 'flex': 'none'" -->
-                <app-c-comons-botonctextoeicono [infoBoton]="botones.bRenaper" (click)="preinscripcionEnvia()"></app-c-comons-botonctextoeicono>
+                <app-c-comons-botonctextoeicono [infoBoton]="botones.bRenaper" (click)="formularioEnviar()" type="submit"></app-c-comons-botonctextoeicono>
                 <app-c-comons-botonctextoeicono [infoBoton]="botones.bSisa" (click)="preinscripcionEnvia()"></app-c-comons-botonctextoeicono>
             </div>
           </div>
@@ -37,217 +37,81 @@
 
         <h3>Datos generales</h3>
 
-        <div class="example-container">
-            <mat-form-field>
-              <input matInput placeholder="Nombres" [formControl]="email" required>
-              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field>
-          </div>
-          <div class="example-container">
-              <mat-form-field>
-                <input matInput placeholder="Apellidos" [formControl]="email" required>
-                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-              </mat-form-field>
-            </div>
-            <div class="example-container">
-                <label>Tipo</label>
-                <p>DNI</p>
-                <mat-form-field>
-                  <input matInput placeholder="Número" [formControl]="email" required>
-                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-                </mat-form-field>
-              </div>
-
-        <div class="example-container">
+        <div class="input-container">
           <mat-form-field>
-            <input matInput placeholder="Apellidos">
-          </mat-form-field>        
+            <input matInput placeholder="Nombres" formControlName="nombre" required>
+            <mat-error *ngIf="nombre.invalid"></mat-error>
+          </mat-form-field>
         </div>
   
-        
-        <div class="example-container">
-            <mat-form-field>
-              <input matInput placeholder="Nombres">
-            </mat-form-field>        
-            <mat-form-field>
-              <input matInput placeholder="Apellidos">
-            </mat-form-field>        
-          </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Nombres</p>
-          </div>
-          <div class="columna w70_">
-            <input type="text" placeholder="Ingrese el valor" [(ngModel)]="inscripcionModelo._e_nombre"
-              name="_e_nombre">
-            <small
-              [style.display]="(validacionesCampos[11]['completado'] === false) ? 'flex': 'none'">{{validacionesCampos[10]['info']}}</small>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Apellidos</p>
-          </div>
-          <div class="columna w70_">
-            <input type="text" placeholder="Ingrese el valor" [(ngModel)]="inscripcionModelo._e_apellido"
-              name="_e_apellido">
-            <small
-              [style.display]="(validacionesCampos[11]['completado'] === false) ? 'flex': 'none'">{{validacionesCampos[11]['info']}}</small>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Documento</p>
-          </div>
-          <div class="w10_">
-            <p>
-              <strong>DNI</strong>
-            </p>
-          </div>
-          <div class="w30_">
-            <p>Número de documento</p>
-          </div>
-          <div class="w30_">
-            <input type="text" placeholder="Ingrese el número de documento de la persona a buscar"
-              [(ngModel)]="inscripcionModelo._e_numerodocumento" name="_e_numerodocumento">
-            <small
-              [style.display]="(validacionesCampos[11]['completado'] === false) ? 'flex': 'none'">{{validacionesCampos[11]['info']}}</small>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Sexo</p>
-          </div>
-          <div class="w30_">
-            <select [(ngModel)]="inscripcionModelo._e_sexo" name="_e_sexo">
-              <option value="-seleccione-">-seleccione-</option>
-              <option>Femenino</option>
-              <option>Masculino</option>
-              <option>Indeterminado</option>
-            </select>
-            <small
-              [style.display]="(validacionesCampos[11]['completado'] === false) ? 'flex': 'none'">{{validacionesCampos[11]['info']}}</small>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Estado civil</p>
-          </div>
-          <div class="w30_">
-            <select [(ngModel)]="inscripcionModelo._e_estadocivil" name="_e_estadocivil">
-              <option value="-seleccione-">-seleccione-</option>
-              <option value="0">Desconocido</option>
-              <option value="1">Soltero/a</option>
-              <option value="2">Casado/a</option>
-              <option value="3">Divorciado/a</option>
-              <option value="4">Viudo/a</option>
-              <option value="5">Separado/a</option>
-            </select>
-            <small
-              [style.display]="(validacionesCampos[11]['completado'] === false) ? 'flex': 'none'">{{validacionesCampos[11]['info']}}</small>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Hijos</p>
-          </div>
-          <div class="w10_">
-            <input type="text" placeholder="Ingrese el valor" [(ngModel)]="inscripcionModelo._e_hijos"
-              name="_e_hijos">
-            <small
-              [style.display]="(validacionesCampos[11]['completado'] === false) ? 'flex': 'none'">{{validacionesCampos[11]['info']}}</small>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Fecha de nacimiento</p>
-          </div>
-          <div class="w30_">
-            <input type="text" placeholder="Ingrese el valor">
-          </div>
-          <div class="w10_">
-            <span class="icon-bot_ico_capacitacion_agendaeinscripcion"></span>
-          </div>
-          <div class="w30_">
-            <p>Edad</p>
-          </div>
+        <div class="input-container">
+          <mat-form-field>
+            <input matInput placeholder="Apellidos" formControlName="apellido" required>
+            <mat-error *ngIf="apellido.invalid"></mat-error>
+          </mat-form-field>
         </div>
 
 
-
-
-        <div class="item">
-          <div class="w30_">
-            <p>Nacionalidad</p>
-          </div>
-          <div class="w30_">
-            <select name="_a_xxxxxx" ngModel>
-              <option value="" selected disabled hidden>Seleccione nacionalidad</option>
-              <option *ngFor="let pais of _paises" value="{{pais.idPais}}">{{pais.nacionalidad}}
-              </option>
-            </select>
-          </div>
+        <div class="input-container varios">
+          <label class="w20">DNI</label>
+          <mat-form-field class="w80">
+            <input matInput placeholder="Número de documento" formControlName="nDocumento" required>
+            <mat-error *ngIf="nDocumento.invalid"></mat-error>
+          </mat-form-field>
         </div>
 
-
-        <div class="item">
-          <div class="w30_">
-            <p>País de nacimiento</p>
-          </div>
-          <div class="w30_">
-            <select name="_a_xxxxxx" ngModel>
-              <option value="" selected disabled hidden>Seleccione pais</option>
-              <option *ngFor="let pais of _paises" value="{{pais.idPais}}">{{pais.nombre}}
-              </option>
-            </select>
-          </div>
+        <div class="input-container varios">
+            <mat-form-field class="w45">  
+              <mat-select formControlName="sexo" placeholder="Sexo" required>  
+                  <mat-option>-- Select Any --</mat-option>  
+                  <mat-option value="C#Corner">Femenino</mat-option>  
+                  <mat-option value="C#Corner">Masculino</mat-option>  
+                  <mat-option value="C#Corner">Indeterminado</mat-option>  
+              </mat-select>  
+              <mat-error>  
+                  <!-- <span *ngIf="!regiForm.get('Blog').valid && regiForm.get('Blog').touched">Please select any item !!!</span> -->  
+              </mat-error>  
+          </mat-form-field>
+          <mat-form-field class="w45">  
+            <mat-select formControlName="estadoCivil" placeholder="Estado civil" required>  
+                <mat-option>-- Select Any --</mat-option>  
+                <mat-option value="C#Corner">Femenino</mat-option>  
+                <mat-option value="C#Corner">Masculino</mat-option>  
+                <mat-option value="C#Corner">Indeterminado</mat-option>  
+            </mat-select>  
+            <mat-error>  
+                <!-- <span *ngIf="!regiForm.get('Blog').valid && regiForm.get('Blog').touched">Please select any item !!!</span> -->  
+            </mat-error>  
+          </mat-form-field>
+          <mat-form-field class="w10">
+            <input matInput placeholder="Hijos" formControlName="hijos" required>
+            <mat-error *ngIf="hijos.invalid"></mat-error>
+          </mat-form-field>
         </div>
 
-
-
-        <div class="item">
-          <div class="w30_">
-            <p>Provincia de nacimiento</p>
-          </div>
-          <div class="w30_">
-            <select name="_a_xxxxxx" ngModel>
-              <option value="" selected disabled hidden>Seleccione provincia</option>
-              <option *ngFor="let provincia of _provincias" value="{{provincia.idProvincia}}">{{provincia.nombre}}
-              </option>
-            </select>
-          </div>
+        <div class="input-container varios">
+            <mat-form-field class="w45">
+              <input matInput [matDatepicker]="picker" placeholder="Nacimiento">
+              <!--   <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Nacimiento"> -->
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+              
+          <label class="w10">Edad</label>
+          <mat-form-field class="w45">
+            <input matInput placeholder="Número de documento" formControlName="nDocumento" required>
+            <mat-error *ngIf="nDocumento.invalid"></mat-error>
+          </mat-form-field>
         </div>
 
-
-        <div class="itemImportante">
-          <div class="item">
-            <div class="w40_">
-              <p>Correo electrónico</p>
-            </div>
-            <div class="w60_">
-              <input type="text" placeholder="Ingrese el valor">
-            </div>
-          </div>
-          <div class="item">
-            <div class="w40_">
-              <p>Confirme correo electrónico</p>
-            </div>
-            <div class="w60_">
-              <input type="text" placeholder="Ingrese el valor">
-            </div>
-          </div>
-          <div>
-            <p>
-              <b>IMPORTANTE</b>: El correo electrónico es imprescindible para la gestión de su pre-inscripción ya que el
-              sistema
-              lo utiliza para notificar diferentes operaciones (Por ejemplo para el envío del código que le permitirá
-              consultar
-              el estado de su inscripción). Verifique que sea correcto y que lo utilice actualmente.
-            </p>
-          </div>
+        <div class="input-container">
+          <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email" required>
+            <mat-error *ngIf="email.invalid"></mat-error>
+          </mat-form-field>
         </div>
+
       </div>
-
 
     </div>
 
@@ -255,314 +119,9 @@
 
       <div class="contenedor">
         <h3>Domicilio de residencia actual</h3>
-
-
-
-        <div class="item">
-          <div class="w30_">
-            <p>Provincia</p>
-          </div>
-          <div class="w30_">
-            <select name="_a_xxxxxx" ngModel>
-              <option value="" selected disabled hidden>Seleccione provincia</option>
-              <option *ngFor="let provincia of _provincias" value="{{provincia.idProvincia}}">{{provincia.nombre}}
-              </option>
-            </select>
-          </div>
-        </div>
-
-
-        <div class="item">
-          <div class="w30_">
-            <p>Localidad</p>
-          </div>
-          <div class="w10_">
-            <span class="icon-bot_ico_buscar"></span>
-          </div>
-          <div class="w30_">
-            <p>
-              <a>Localidades</a>
-            </p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Domicilio</p>
-          </div>
-          <div class="w30_">
-            <input type="text" placeholder="Ingrese el valor">
-          </div>
-          <div class="w5_">
-            <p>Nro</p>
-          </div>
-          <div class="w5_">
-            <input type="text" placeholder="Ingrese el valor">
-          </div>
-          <div class="w5_">
-            <p>Piso</p>
-          </div>
-          <div class="w5_">
-            <input type="text" placeholder="Ingrese el valor">
-          </div>
-          <div class="w5_">
-            <p>Dpto</p>
-          </div>
-          <div class="w5_">
-            <input type="text" placeholder="Ingrese el valor">
-          </div>
-        </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Código postal</p>
-          </div>
-          <div class="w30_">
-            <input type="text" placeholder="Ingrese el valor">
-          </div>
-          <div class="w40_">
-            <p>Formato tradicional de 4 dígitos o el nuevo de 8 caracteres</p>
-          </div>
-        </div>
-
-
-        <div class="item">
-          <div class="w30_">
-            <p>Teléfono 1</p>
-          </div>
-          <div class="w20_">
-            <select>
-              <option value="-seleccione-">-seleccione-</option>
-              <option value="2">Celular</option>
-              <option value="3">Laboral</option>
-              <option value="13">Otros/desconocido</option>
-              <option value="1">Particular</option>
-              <option value="10">Particular vecino</option>
-              <option value="12">Tel/Fax</option>
-            </select>
-          </div>
-          <div class="w40_">
-            <input type="text" placeholder="Ingrese el valor">
-          </div>
-          <div class="w10_">
-            <span class="icon-bot_ico_agregar"></span>
-          </div>
-        </div>
-
-      </div>
-      <!-- 
-    </div>
-
-      <div class="col-12 col-md-6">
-         -->
-      <div class="contenedor">
-        <h3>Profesión actual</h3>
-        <div class="item">
-          <div class="w30_">
-            <p>Título</p>
-          </div>
-          <div class="w70_">
-            <select>
-              <option value="-seleccione-">-seleccione-</option>
-              <option>UNIVERSIDAD DE PALERMO</option>
-              <option>UNIVERSIDAD DE SAN ANDRES</option>
-              <option>UNIVERSIDAD NACIONAL DEL CHACO AUSTRAL</option>
-              <option>UNIVERSIDAD FAVALORO</option>
-              <option>UNIVERSIDAD NACIONAL DE GENERAL SARMIENTO</option>
-              <option>UNIVERSIDAD GASTON DACHARY</option>
-              <option>FUNDACION UNIVERSITARIA SAN MARTIN</option>
-              <option>UNIVERSIDAD DE ASUNCION</option>
-              <option>UNIVERSIDAD NACIONAL DE RIO NEGRO</option>
-              <option>UNIVERSIDAD DEL ESTE</option>
-              <option>INSTITUTOS Y HOSPITALES NACIONALES</option>
-              <option>INSTITUTO DE CARDIOLOGIA Y CIRUGIA CARDIOVASCULAR - FUNDACION FAVALORO (EDIFICIO CENTRAL)</option>
-              <option>CEMIC - HOSPITAL UNIVERSITARIO SEDE SAAVEDRA</option>
-              <option>ALEJANDRO MIRANDA</option>
-              <option>CENTRO MEDICO CLINICA DE LA SALUD</option>
-              <option>HOSPITAL DE CLINICAS JOSE DE SAN MARTIN</option>
-              <option>INSTITUTO DE INVESTIGACIONES MEDICAS DR. ALFREDO LANARI</option>
-            </select>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Tipo de matrícula</p>
-          </div>
-          <div class="w20_">
-            <select>
-              <option value="-seleccione-">-seleccione-</option>
-              <option value="PR">Provincial</option>
-              <option value="NA">Nacional</option>
-            </select>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Año de ingreso a la carrera</p>
-          </div>
-          <div class="w20_">
-            <input type="text" placeholder="Ingrese el valor">
-          </div>
-        </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Promedio de la carrera con aplazos</p>
-          </div>
-          <div class="w20_">
-            <input type="text" placeholder="Ingrese el valor">
-          </div>
-          <div class="w50_">
-            <p>Formato con hasta dos decimales, utilizar punto. (ejemplo 7.45)</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w30_">
-            <p>Título en trámite</p>
-          </div>
-          <div class="w20_">
-            <select>
-              <option value="-seleccione-">-seleccione-</option>
-              <option value="PR">SI</option>
-              <option value="NA">NO</option>
-            </select>
-          </div>
-        </div>
       </div>
     </div>
 
-    <div class="col-12">
-      <h3>Datos de la preinscripción</h3>
-    </div>
-    <div class="col-12 col-md-6">
-
-      <div class="contenedor">
-        <div class="item">
-          <div class="w50_">
-            <p>Nombre del Concurso al cual se inscribe</p>
-          </div>
-          <div class="w50_">
-            <p>Examen Unico 2018</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w50_">
-            <p>Fecha de inicio de la inscripción</p>
-          </div>
-          <div class="w50_">
-            <p>14-11-2017</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w50_">
-            <p>Fecha de finalización de la inscripción</p>
-          </div>
-          <div class="w50_">
-            <p>29-12-2017</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="w50_">
-            <p>Fecha de examen</p>
-          </div>
-          <div class="w50_">
-            <p>20-06-2018</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-6">
-
-      <div class="contenedor">
-
-
-
-        <div class="item">
-          <div class="w30_">
-            <p>Provincia en la que concursa</p>
-          </div>
-          <div class="w30_">
-            <select name="_a_xxxxxx" ngModel>
-              <option value="" selected disabled hidden>Seleccione provincia</option>
-              <option *ngFor="let provincia of _provincias" value="{{provincia.idProvincia}}">{{provincia.nombre}}
-              </option>
-            </select>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="w40_">
-            <p>Especialidad en la que concursa</p>
-          </div>
-          <div class="w30_">
-            <select>
-              <option value="-seleccione-">-seleccione-</option>
-              <option>Psicólogo</option>
-              <option>Psicopedagogo</option>
-              <option>Kinesiólogo</option>
-              <option>Terapista ocupacional</option>
-              <option>Fonoaudiólogo</option>
-              <option>Licenciado en nutrición</option>
-              <option>Obstétrica/o</option>
-              <option>Bioquímico</option>
-              <option>Profesional de análisis clínicos</option>
-              <option>Trabajador social</option>
-              <option>Biólogo</option>
-              <option>Microbiólogo</option>
-              <option>Bacteriólogo</option>
-              <option>Tecnología alimentaria</option>
-              <option>Enfermero</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="w30_">
-            <p>Provincia en la que se rinde</p>
-          </div>
-          <div class="w30_">
-            <select name="_a_xxxxxx" ngModel>
-              <option value="" selected disabled hidden>Seleccione provincia</option>
-              <option *ngFor="let provincia of _provincias" value="{{provincia.idProvincia}}">{{provincia.nombre}}
-              </option>
-            </select>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="w40_">
-            <p>Localidad en la que se rinde</p>
-          </div>
-          <div class="w30_">
-            <select>
-              <option value="-seleccione-">-seleccione-</option>
-              <option>Ciudad de Buenos Aires </option>
-              <option>Carhué</option>
-              <option>Colonia San Miguel Arcángel </option>
-              <option>Delfín Huergo </option>
-              <option>Espartillar </option>
-              <option>Esteban Agustín Gascón</option>
-              <option>La Pala</option>
-              <option>Maza</option>
-              <option>Rivera</option>
-              <option>Thames</option>
-              <option>Villa Margarita</option>
-              <option>Yutuyaco</option>
-              <option>Adolfo Gonzales Chaves (Est. Chaves)</option>
-              <option>De la Garma</option>
-              <option>Juan E. Barra</option>
-              <option>Vásquez</option>
-              <option>Alberti (Est. Andrés Vaccarezza)</option>
-              <option>Coronel Seguí</option>
-              <option>Mechita </option>
-              <option>Pla </option>
-              <option>Villa Grisolía (Est. Achupallas)</option>
-              <option>Villa María</option>
-              <option>Villa Ortiz (Est. Coronel Mom)</option>
-            </select>
-          </div>
-        </div>
-
-      </div>
-    </div>
   </div>
   
 </div>
@@ -574,50 +133,20 @@
   <!-- Paso 2 ~ Seleccion de concurso - - - - - - - - - - - - - - - - - - - - - - - - - - i -->
     <div class="container" [style.display]="pasoActual === 1 ? 'block': 'none'">
 
+
+
+      <div class="col-12">
+        <h3>Datos de la preinscripción</h3>
+      </div>      
+
+
         <h2>Tipo de concurso al que desea inscribirse</h2>
         <div class="row">
           <div class="col-12">
-            <div class="contenedor">
-              <div class="row">
-    
-                <div class="col-6">
-                  <div class="item">
-                    <div class="w30_">
-                      <p>Tipo de concurso</p>
-                    </div>
-                    <div class="columna w70_">
-                      <select name="_b_concursotipo" [(ngModel)]="inscripcionModelo._b_concursotipo">
-                        <!-- <option value="-seleccione-">-seleccione-</option> -->
-                        <option value="1" *ngIf="_offLineMode === true" >Examen Unico</option>
-                      </select>
-                      <small [style.display]="(validacionesCampos[4]['completado'] === false) ? 'flex': 'none'">{{validacionesCampos[4]['info']}}</small>
-                    </div>
-                  </div>
-                </div>
-    
-                <div class="col-6">
-                  <div class="item">
-                    <div class="w30_">
-                      <p>Subtipo de concurso</p>
-                    </div>
-                    <div class="columna w70_">
-                      <select name="_b_concursosubtipo" [(ngModel)]="inscripcionModelo._b_concursosubtipo">
-                        <!-- <option value="-seleccione-">-seleccione-</option> -->
-                        <option value="1" *ngIf="_offLineMode === true" >Médico</option>
-                      </select>
-                      <small [style.display]="(validacionesCampos[5]['completado'] === false) ? 'flex': 'none'">{{validacionesCampos[5]['info']}}</small>
-                    </div>
-                  </div>
-                </div>
-    
-              </div>
-            </div>
+            
           </div>
         </div>
-    
-        => {{validacionesCampos[4] | json}}
-        <br>
-        => {{validacionesCampos[5] | json}}
+        
       </div>
    
   <!-- Paso 2 ~ Seleccion de concurso - - - - - - - - - - - - - - - - - - - - - - - - - - f --> 
@@ -627,5 +156,5 @@
 </form>
 <!-- Formulario f -->
 
-
+{{inscripcionConcurso.value | json}}
 </div>
