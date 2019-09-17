@@ -1,0 +1,30 @@
+form{    width: 100%;   /*  border: violet 1px dotted;  */   }
+form > div{
+    position: relative;
+    justify-self: center;
+    width: 500px;
+    left: -250px;
+    margin: 40px 0 40px 50%;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.5) !important;
+}
+
+form .login{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+}
+
+form .login > div:first-child span{
+    font-size: 192px;
+}
+
+form .login > div:last-child{
+    display: flex;
+    flex-direction: column;
+}
+form h1{    margin-bottom: 20px;    }
+
+form > div,
+form > div *{    color: white !important;   }

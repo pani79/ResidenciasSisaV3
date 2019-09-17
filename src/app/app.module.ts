@@ -12,6 +12,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
 
 //  Componentes
 import { SisaComponent } from './components/sisa/sisa.component';
@@ -25,6 +26,7 @@ import { BotonCtextoeiconoComponent } from './components/commons/boton-ctextoeic
 import { ListaComponent } from './components/commons/lista/lista.component';
 import { ContenidoComponent } from './components/commons/lista/contenido/contenido.component';
 import { PanelPasosComponent } from './components/commons/panel-pasos/panel-pasos.component';
+import { IngresarComponent } from './components/residencias/ingresar/ingresar.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { PanelPasosComponent } from './components/commons/panel-pasos/panel-paso
     BotonCtextoeiconoComponent,
     ListaComponent,
     ContenidoComponent,
-    PanelPasosComponent
+    PanelPasosComponent,
+    IngresarComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import { PanelPasosComponent } from './components/commons/panel-pasos/panel-paso
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatNativeDateModule, MatInputModule, MatSelectModule, MatDatepickerModule
+    MatNativeDateModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatIconModule
   ],
   exports: [MatInputModule],
   providers: [],

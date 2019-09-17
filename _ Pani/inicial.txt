@@ -42,6 +42,7 @@ ng g c components/interface/header
 ng g c components/residencias
 ng g c components/residencias/consultas
 ng g c components/residencias/inscripcion
+ng g c components/residencias/ingresar
 ng g c components/sisa
 
 
