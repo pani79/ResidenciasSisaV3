@@ -1,65 +1,54 @@
-<!-- 
+
 <app-paginabase [info]="infoPaginaBase"></app-paginabase>
- -->
+<!--  -->
 <div class="container">
-
-    <div class="row">
-
-        
+    <div class="row">    
         <div class="col-12">
 
-            <form [formGroup]="ingreso" (ngsubmit)="formularioEnviar(inscripcionConcurso.value)">
-                <div class="reg_residencias">
-                    <div class="login">
-                        <div>
-                            <span class="icon-reg_residencias"></span>
-                        </div>
-                        <div class="texto">
-                            <h1>Ingreso de residente</h1>
-                                
-                            
-                            <div class="input-container">
-                                <mat-form-field>
-                                    <input matInput placeholder="Número de documento" formControlName="nDocumento" required>
-                                    <mat-error *ngIf="nDocumento.invalid"></mat-error>
-                                </mat-form-field>
+                <div class="contenedor reg_residencias">
+                    <div class="row">
+                            <div class="col-12 col-md-4 icono">
+                                    <span class="icon-reg_residencias"></span>
                             </div>
-                            <div class="input-container">
-                                <mat-form-field>
-                                    <input matInput placeholder="Código alfanumérico" formControlName="nDocumento" required>
-                                    <mat-error *ngIf="nDocumento.invalid"></mat-error>
-                                </mat-form-field>
-                            </div>
+                            <div class="col-12 col-md-8 ingresar">
+                                <h1>Ingreso de residente</h1>
+                                <p>Si ya sos residente y participaste alguna vez... entra por aca con los datos.</p>
+                                <form [formGroup]="ingreso"  (ngsubmit)="formularioEnviar(inscripcionConcurso.value)">
+                                    <mat-form-field>
+                                        <input matInput placeholder="Número de documento" formControlName="nDocumento" required>
+                                        <mat-error *ngIf="nDocumento.invalid"></mat-error>
+                                    </mat-form-field>
+                                    
+                                    <mat-form-field>
+                                        <input matInput placeholder="Código alfanumérico" formControlName="nDocumento" required>
+                                        <mat-error *ngIf="nDocumento.invalid"></mat-error>
+                                    </mat-form-field>
+                                    <!--      -->
+                                    <div class="contenedorDeBotones">
+                                        <app-c-comons-botonctextoeicono [infoBoton]="botones.ingresar" (click)="ingresar()"></app-c-comons-botonctextoeicono>
+                                    </div>
 
-                            <mat-form-field class="w45">
-                                <input matInput [matDatepicker]="picker" placeholder="Nacimiento">
-                                <!--   <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Nacimiento"> -->
-                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                <mat-datepicker #picker></mat-datepicker>
-                                </mat-form-field>
-                            <hr>
-                        </div>
-                        <div class="contenedorDeBotones inverso"><!--  [style.display]="_pasoActual === 4 ? 'flex': 'none'" -->
-                            <app-c-comons-botonctextoeicono [infoBoton]="botones.bSisa" (click)="ingresar()"></app-c-comons-botonctextoeicono>
-                        </div>
+                                </form>
+                            </div>
                         
                     </div>
-                    <hr>
-                    <div class="crear">
-                        <p>Chango si no sos residente, hacete acá.</p>
-                        <div class="contenedorDeBotones inverso"><!--  [style.display]="_pasoActual === 4 ? 'flex': 'none'" -->
-                            <app-c-comons-botonctextoeicono [infoBoton]="botones.crear" (click)="preinscripcionEnvia()"></app-c-comons-botonctextoeicono>
+                </div>
+
+                <div class="contenedor">
+                    <div class="row">
+                        <div class="col-12 col-md-7">
+                            <h2>Crear residente</h2>
+                            <p>Si es tu primera inscripción, completa el formulario.</p>
+                            <p [innerHTML]="infoContacto"></p>
+                        </div>
+                        <div class="col-12 col-md-5 pos">
+                            <div class="contenedorDeBotones"><!--  [style.display]="_pasoActual === 4 ? 'flex': 'none'" -->
+                                <app-c-comons-botonctextoeicono [infoBoton]="botones.crear" (click)="preinscripcionEnvia()"></app-c-comons-botonctextoeicono>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-
-            </form>
-
         </div>
-
-
     </div>
-
-
 </div>

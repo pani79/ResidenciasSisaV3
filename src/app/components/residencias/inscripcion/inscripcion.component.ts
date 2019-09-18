@@ -22,6 +22,7 @@ export class InscripcionComponent implements OnInit {
   estadoCivil: string = '';
   hijos: string = '';
   email: string = '';
+  emailConfirmar: string = '';
 
   residente = new FormControl('');
   //email = new FormControl('', [Validators.required, Validators.email]);
@@ -41,8 +42,8 @@ export class InscripcionComponent implements OnInit {
   ];
 
   botones = {
-    bRenaper: ['boton boton_general', 'bot_ico_renaper'],
-    bSisa: ['boton boton_general', 'ico_sisa_icono'],
+    /* bRenaper: ['boton boton_general', 'bot_ico_renaper'],
+    bSisa: ['boton boton_general', 'ico_sisa_icono'], */
     enviarFormulario: ['boton_pos', 'bot_ico_aceptar', 'Enviar formulario de preinscripción']
   };
   formularioCompleto = false;
@@ -56,13 +57,7 @@ export class InscripcionComponent implements OnInit {
       titlulo: 'Formulario de residente',
       subtitulo: null,
       descripcion: 'Completar formulario',
-      seleccionado: false,
-      completado: false,
-      habilitado: false
-    }, {
-      titlulo: 'Concurso de inscripcion',
-      subtitulo: null,
-      descripcion: 'Elegir tipo de concurso',
+      icono: 'icon-bot_ico_cmdb_ciudadano',
       seleccionado: false,
       completado: false,
       habilitado: false
@@ -70,6 +65,15 @@ export class InscripcionComponent implements OnInit {
       titlulo: 'Encuesta',
       subtitulo: null,
       descripcion: 'Completar encuesta (opcional)',
+      icono: 'icon-bot_ico_ayudaenlinea',
+      seleccionado: false,
+      completado: false,
+      habilitado: false
+    }, {
+      titlulo: 'Inscripción',
+      subtitulo: null,
+      descripcion: 'Elegir tipo de concurso',
+      icono: 'icon-bot_ico_editar',
       seleccionado: false,
       completado: false,
       habilitado: false
@@ -203,7 +207,8 @@ encuestaModelo = new ResidenciasPreinscripcionEncuestaModel (
       sexo: [''],
       estadoCivil: [''],
       hijos: [''],
-      email: ['']
+      email: [''],
+      emailConfirmar: ['']
     });
   }
 /* 

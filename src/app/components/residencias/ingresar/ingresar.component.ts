@@ -19,12 +19,14 @@ export class IngresarComponent implements OnInit {
     'Exámenes para residencias',
     'reg_residencias',
     'reg_residencias',
-    'Para información sobre los distintos concursos de residencias consulte la web del <a href="http://www.msal.gov.ar/residencias" target="_blank">Ministerio de Salud de la Nación</a>'
+    // tslint:disable-next-line:max-line-length
+    'Para información sobre los distintos concursos de residencias consulte la web del <a href="http://www.msal.gov.ar/residencias" target="_blank">Ministerio de Salud de la Nación</a>.'
   ];
+  // tslint:disable-next-line:max-line-length
+  infoContacto = 'Para obtener soporte técnico y asistencia, escriba a <a href="mailto:soporte@sisa.msal.gov.ar">soporte@sisa.msal.gov.ar</a>';
+
   botones = {
-    bRenaper: ['boton boton_general', 'bot_ico_renaper'],
-    bSisa: ['boton boton_general', 'ico_sisa_icono'],
-    enviarFormulario: ['boton_pos', 'bot_ico_aceptar', 'Enviar formulario de preinscripción'],
+    ingresar: ['boton boton_general', 'bot_ico_acceder', 'Ingresar'],
     crear: ['boton boton_pos', 'mod_usuarios', 'Crear residente']
   };
 
@@ -42,7 +44,7 @@ export class IngresarComponent implements OnInit {
 
   }
 
-  formularioEnviar() {}
+  formularioEnviar() {  this.router.navigateByUrl('consultas'); }
   ingresar() {
     //alert('(');
     this.router.navigateByUrl('residencias');

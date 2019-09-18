@@ -11,7 +11,10 @@
 
 .input-container.varios > .w10 {  width: 10%; }
 .input-container.varios > .w20 {  width: 20%; }
+.input-container.varios > .w30 {  width: 30%; }
+.input-container.varios > .w40 {  width: 40%; }
 .input-container.varios > .w45 {  width: 45%; }
+.input-container.varios > .w70 {  width: 70%; }
 .input-container.varios > .w80 {  width: 80%; }
 
 .panelPasos > .contenedor > div > .contenedorDePaneles {
@@ -137,3 +140,4 @@ h2{	border: thin orange dotted;}
 
 .Formulario .menuFormulario{  margin: 20px 0 40px 0; }
 
+.contenedor > *{border: 1px dotted rgba(0, 0, 0, .2);}
