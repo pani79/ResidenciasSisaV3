@@ -24,6 +24,32 @@ export class InscripcionComponent implements OnInit {
   email: string = '';
   emailConfirmar: string = '';
 
+  favoriteSeason: string;
+  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
+  e_ochoanosEleccion: string;
+  e_ochoanos: string[] = [
+    'Practicando la especialidad en la cual se inscribe, en el mismo lugar',
+    'Practicando la especialidad en la cual se inscribe, en otro sitio',
+    'Practicando una subespecialidad',
+    'Practicando otra especialidad',
+    'Trabajando fuera del sector salud',
+    'Trabajando en gestión o administración de servicios',
+    'No lo sabe'
+  ];
+  e_futuroEleccion: string;
+  e_futuro: string[] = [
+    'A igualdad de ingresos y modalidades de contratación preferiría el subsector público',
+    'A igualdad de ingresos y modalidades de contratación preferiría el subsector privado',
+    'Trabajaría indistintamente en ambos subsectores',
+    'No lo sabe'
+  ];
+  
+  cConcursaPorEleccion: string;
+  cConcursaPor: string[] = [
+    'Provincia',
+    'Institucion'
+  ];
+
   residente = new FormControl('');
   //email = new FormControl('', [Validators.required, Validators.email]);
   //nombre = new FormControl('');
@@ -65,7 +91,7 @@ export class InscripcionComponent implements OnInit {
       titlulo: 'Encuesta',
       subtitulo: null,
       descripcion: 'Completar encuesta (opcional)',
-      icono: 'icon-bot_ico_ayudaenlinea',
+      icono: null, /* 'icon-bot_ico_ayudaenlinea' */
       seleccionado: false,
       completado: false,
       habilitado: false
@@ -150,51 +176,57 @@ encuestaModelo = new ResidenciasPreinscripcionEncuestaModel (
     { //0  _a_concursaTipo
       completado: null,
       info: 'Seleccione el tipo de concurso donde desea inscribirse'
-    },
-    { //1  _a_concursaProvincia
-      completado: null,
-      info: 'Seleccione una provincia donde desea inscribirse'
-    },
-    { //2  _a_concursaInstitucion
-      completado: null,
-      info: 'Seleccione una institución donde desea inscribirse'
-    },
-    { //3  _a_concursaEspecialidad
-      completado: null,
-      info: 'Seleccione la especialidad a la que desea inscribirse'
-    },
-    { //4  _b_concursotipo
-      completado: null,
-      info: 'Seleccione un tipo de concurso en el cual desea inscribirse'
-    },
-    { //5  _b_concursosubtipo
-      completado: null,
-      info: 'Seleccione un subtipo de concurso en el cual desea inscribirse'
-    },
-    { //6  _c_concurso
-      completado: null,
-      info: 'Seleccione el concurso en el cual desea inscribirse'
-    },
-    { //7  _d_razoneseleccion
-      completado: null,
-      info: 'La suma de todos los campos debe ser 100, por favor revise los valores que ha puesto y reconsidere sus estudios primarios.'
-    },
-    { //8  _d_dondeseencontrara
-      completado: null,
-      info: 'Seleccione una de las opciones'
-    },
-    { //9  _d_ambitodesarrollo
-      completado: null,
-      info: 'Seleccione una de las opciones'
-    },
-    { //10  _e_nombre
-      completado: null,
-      info: 'Ingrese su nombre'
-    },
-    { //11  _e_apellido
-      completado: null,
-      info: 'Ingrese su apellido'
     }
+    /* 
+        { //0  _a_concursaTipo
+          completado: null,
+          info: 'Seleccione el tipo de concurso donde desea inscribirse'
+        },
+        { //1  _a_concursaProvincia
+          completado: null,
+          info: 'Seleccione una provincia donde desea inscribirse'
+        },
+        { //2  _a_concursaInstitucion
+          completado: null,
+          info: 'Seleccione una institución donde desea inscribirse'
+        },
+        { //3  _a_concursaEspecialidad
+          completado: null,
+          info: 'Seleccione la especialidad a la que desea inscribirse'
+        },
+        { //4  _b_concursotipo
+          completado: null,
+          info: 'Seleccione un tipo de concurso en el cual desea inscribirse'
+        },
+        { //5  _b_concursosubtipo
+          completado: null,
+          info: 'Seleccione un subtipo de concurso en el cual desea inscribirse'
+        },
+        { //6  _c_concurso
+          completado: null,
+          info: 'Seleccione el concurso en el cual desea inscribirse'
+        },
+        { //7  _d_razoneseleccion
+          completado: null,
+          info: 'La suma de todos los campos debe ser 100, por favor revise los valores que ha puesto y reconsidere sus estudios primarios.'
+        },
+        { //8  _d_dondeseencontrara
+          completado: null,
+          info: 'Seleccione una de las opciones'
+        },
+        { //9  _d_ambitodesarrollo
+          completado: null,
+          info: 'Seleccione una de las opciones'
+        },
+        { //10  _e_nombre
+          completado: null,
+          info: 'Ingrese su nombre'
+        },
+        { //11  _e_apellido
+          completado: null,
+          info: 'Ingrese su apellido'
+        }
+     */
   ];
 
   constructor( private fb: FormBuilder) { }
@@ -238,13 +270,19 @@ encuestaModelo = new ResidenciasPreinscripcionEncuestaModel (
     switch (this.pasoActual) {
 
       case 0:
-        this.validacionesCampos[0]['completado'] = false;
-        this.validacionesCampos[1]['completado'] = false;
-        this.validacionesCampos[2]['completado'] = false;
-        this.validacionesCampos[3]['completado'] = false;
-
+        /* 
+          this.validacionesCampos[0]['completado'] = false;
+          this.validacionesCampos[1]['completado'] = false;
+          this.validacionesCampos[2]['completado'] = false;
+          this.validacionesCampos[3]['completado'] = false;
+        */
         break;
-/* 
+
+        case 1:
+          break;
+        case 2:
+          break;
+      /* 
       case 0:
         this.validacionesCampos[0]['completado'] = false;
         this.validacionesCampos[1]['completado'] = false;
@@ -412,13 +450,18 @@ encuestaModelo = new ResidenciasPreinscripcionEncuestaModel (
         console.log('validaPaso ERROR - > ' + pasoNumero + ' // ' + respuesta);
         break;
     }
-
-    if (this.infoPasoAPaso[pasoNumero]['habilitado'] !== true) { 
-      respuesta = false; 
-    }
+    /* 
+            //  Aca nos fijamos si el registro del paso fue habilitado
+            if (this.infoPasoAPaso[pasoNumero]['habilitado'] !== true) {
+              respuesta = false;
+            }
+     */
     console.log('la respuesta fue ' + respuesta);
     return respuesta;
   }
+
+
+
 
   formularioEnviar() {
     alert('-> ' + this.inscripcionConcurso.value);

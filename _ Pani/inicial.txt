@@ -45,6 +45,7 @@ ng g c components/residencias/inscripcion
 ng g c components/residencias/ingresar
 ng g c components/sisa
 
+ng g m modules/material-components
 
 ng g s services/residencias
 

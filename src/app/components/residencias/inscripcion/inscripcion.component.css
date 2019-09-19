@@ -14,8 +14,10 @@
 .input-container.varios > .w30 {  width: 30%; }
 .input-container.varios > .w40 {  width: 40%; }
 .input-container.varios > .w45 {  width: 45%; }
+.input-container.varios > .w50 {  width: 50%; }
 .input-container.varios > .w70 {  width: 70%; }
 .input-container.varios > .w80 {  width: 80%; }
+.input-container.varios > .w90 {  width: 90%; }
 
 .panelPasos > .contenedor > div > .contenedorDePaneles {
     display: grid !important;
@@ -47,8 +49,12 @@ form .item .columna{	display: flex; flex-direction: column; }
 .estadoInscripciones > span{	font-size: 32px; color: #003366; margin-right: 20px; }
 .estadoInscripciones > p{		margin-top: 8px; }
 
+.contenedor > h3 {  margin: 40px 0px 30px 0px; border: thin blue dotted; }
+.contenedor > h3:first-child {  margin: 0px 0px 30px 0px;  }
+.contenedor > h3:only-child {  margin: 0px 0px 30px 0px; }
+
 /* Temp */
-h2{	border: thin orange dotted;}
+/* h2{	border: thin orange dotted;} */
 
 .listado{ 
 	background-color: #e8e8e8; 
@@ -139,5 +145,7 @@ h2{	border: thin orange dotted;}
  */
 
 .Formulario .menuFormulario{  margin: 20px 0 40px 0; }
-
+/* 
 .contenedor > *{border: 1px dotted rgba(0, 0, 0, .2);}
+.row, .row > *{border: 1px dotted rgba(255, 0, 0, .2);}
+ */

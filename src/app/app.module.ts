@@ -8,11 +8,14 @@ import { AppComponent } from './app.component';
 
 //  Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialComponentsModule } from './modules/material-components/material-components.module';
+/* 
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
+ */
 
 //  Componentes
 import { SisaComponent } from './components/sisa/sisa.component';
@@ -51,9 +54,10 @@ import { IngresarComponent } from './components/residencias/ingresar/ingresar.co
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatNativeDateModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatIconModule
+    MaterialComponentsModule
+    /* , MatNativeDateModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatIconModule */
   ],
-  exports: [MatInputModule],
+  exports: [/* MatInputModule */],
   providers: [],
   bootstrap: [AppComponent]
 })
