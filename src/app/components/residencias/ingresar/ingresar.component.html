@@ -13,14 +13,15 @@
                             <div class="col-12 col-md-8 ingresar">
                                 <h1>Ingreso de residente</h1>
                                 <p>Si ya sos residente y participaste alguna vez... entra por aca con los datos.</p>
+
                                 <form [formGroup]="ingreso"  (ngsubmit)="formularioEnviar(inscripcionConcurso.value)">
                                     <mat-form-field>
-                                        <input matInput placeholder="Número de documento" formControlName="nDocumento" required>
+                                        <input matInput placeholder="Número de documento" formControlName="ingreso.nDocumento" required>
                                         <mat-error *ngIf="nDocumento.invalid"></mat-error>
                                     </mat-form-field>
                                     
                                     <mat-form-field>
-                                        <input matInput placeholder="Código alfanumérico" formControlName="nDocumento" required>
+                                        <input matInput placeholder="Código alfanumérico" formControlName="ingreso.codigoalfa" required>
                                         <mat-error *ngIf="nDocumento.invalid"></mat-error>
                                     </mat-form-field>
                                     <!--      -->
@@ -33,7 +34,6 @@
                         
                     </div>
                 </div>
-
                 <div class="contenedor">
                     <div class="row">
                         <div class="col-12 col-md-7">
@@ -48,6 +48,16 @@
                         </div>
                     </div>
                 </div>
+
+                <p>
+                    Residentes
+                    <br>
+                     {{ residentes | json }}
+                     <br>
+                      {{ residentes.length }}
+                </p>
+               
+
 
         </div>
     </div>

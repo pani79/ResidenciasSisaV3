@@ -91,7 +91,7 @@ export class InscripcionComponent implements OnInit {
       titlulo: 'Encuesta',
       subtitulo: null,
       descripcion: 'Completar encuesta (opcional)',
-      icono: null, /* 'icon-bot_ico_ayudaenlinea' */
+      icono: 'icon-bot_ico_ayudaenlinea', /*  */
       seleccionado: false,
       completado: false,
       habilitado: false
@@ -233,8 +233,8 @@ encuestaModelo = new ResidenciasPreinscripcionEncuestaModel (
 
   ngOnInit() {
     this.inscripcionConcurso = this.fb.group({
-      nombre: [''],
-      apellido: [''],
+      nombre: ['Bob'],
+      apellido: ['Kane'],
       nDocumento: [''],
       sexo: [''],
       estadoCivil: [''],

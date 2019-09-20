@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormArray, Validators, FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+//  Servicios
+import { ResidenciasService } from 'src/app/services/residencias.service';
+//  Modelos
+import { TemporalResidente } from 'src/app/models/temp_residente';
 
 @Component({
   selector: 'app-ingresar',
@@ -11,6 +15,8 @@ import { FormBuilder } from '@angular/forms';
 export class IngresarComponent implements OnInit {
 
   ingreso: FormGroup;
+  residentes: TemporalResidente[] = [];
+  residente: TemporalResidente;
   nDocumento: string = '';
   codigoAlfanumerico: string = '';
 
@@ -30,12 +36,22 @@ export class IngresarComponent implements OnInit {
     crear: ['boton boton_pos', 'mod_usuarios', 'Crear residente']
   };
 
+
   constructor(
     private router: Router,
+    private residenciasService: ResidenciasService,
     private fb: FormBuilder
   ) { }
 
   ngOnInit() {
+    /* 
+        this.ingreso = this.fb.group({
+          'nDocumento':['000', Validators.required],
+          'codigoalfa':[null, Validators.required]
+        });
+    */
+    this.residenciasService.residentesObtieneTodos()
+    .subscribe(data => this.residentes = data);
 
     this.ingreso = this.fb.group({
       nDocumento: [''],
@@ -45,6 +61,7 @@ export class IngresarComponent implements OnInit {
   }
 
   formularioEnviar() {  this.router.navigateByUrl('consultas'); }
+
   ingresar() {
     //alert('(');
     this.router.navigateByUrl('residencias');

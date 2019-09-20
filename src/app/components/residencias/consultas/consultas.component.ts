@@ -35,8 +35,10 @@ export class ConsultasComponent implements OnInit {
   constructor(private residenciasService: ResidenciasService) { }
 
   ngOnInit() {
+/* 
     this.residenciasService.residentesObtieneTodos()
       .subscribe(data => this.residentes = data);
+       */
   }
 
 }

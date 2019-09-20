@@ -1,10 +1,14 @@
 .contenedor{
 	display: grid;
-	grid-template-columns: 1fr minmax(600px, 900px) 1fr; 
+	grid-template-columns: 1fr minmax(500px, 900px) 1fr; 
 	margin: 40px 0;
 }
 
-.contenedorDePaneles{	display: flex; flex-direction: row; }
+.contenedorDePaneles{	
+	display: flex; 
+	flex-direction: row;
+	justify-content: center;
+}
 .contenedorDePaneles > li{	
 	display: flex;
 	flex-direction: column; 
@@ -67,11 +71,20 @@
 	position: relative; 
 	color: white; 
 	text-align: center; 
-	/* top: 50%; 	margin-top: -24px; */
 	font-size: 36px !important;
 	margin-top: 5px;
 }
-.contenedorDePaneles .pasoInfo > * {text-align: center;}
+.contenedorDePaneles .pasoNumero > .color span{ 
+	position: relative; 
+	color: white; 
+	font-size: 31px !important;
+	margin-top: 5px;
+	top: 10px;
+	margin-top: 50%;
+	left: 10px;
+}
+.contenedorDePaneles .pasoInfo {		margin: 0px 6px;/*  background-color: pink;  */}
+.contenedorDePaneles .pasoInfo > * {	text-align: center;	}
 
 
 .colorCompletado{	background-color: #006633 !important; }

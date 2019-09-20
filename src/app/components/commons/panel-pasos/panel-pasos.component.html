@@ -9,9 +9,10 @@
     <div class="contenedorDeIndicador">
       <div class="pasoNumero" (click)="CambiaDePaso(i)" id="paso_{{i}}" [ngClass]="{ colorCompletado: _pasos[i]['completado'] }">
         <div class="color" [ngClass]="{ colorCompletado: _pasos[i]['seleccionado'] }">
-            {{panel['icono']}}
-          <h2 *ngIf="{{panel['icono'] !== null}}">{{i + 1}}</h2>
-          <!-- <span *ngIf="{{panel['icono']}}" [ngClass]="{{panel['icono'}}"></span> -->
+          <!-- si hay icono mostramos icono y sino lo escondemos -->
+          <span *ngIf="(panel['icono'] !== null)" [ngClass]="panel['icono']"></span>
+          <!-- si no hay icono mostramos el numero -->
+          <h2 *ngIf="(panel['icono'] === null)">{{i + 1}}</h2>
         </div>
         <div class="colorFondo"></div>
       </div>
