@@ -24,8 +24,6 @@ export class InscripcionComponent implements OnInit {
   email: string = '';
   emailConfirmar: string = '';
 
-  favoriteSeason: string;
-  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
   e_ochoanosEleccion: string;
   e_ochoanos: string[] = [
     'Practicando la especialidad en la cual se inscribe, en el mismo lugar',

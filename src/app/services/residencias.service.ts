@@ -19,9 +19,15 @@ export class ResidenciasService {
       return this.http.get<ResidenciasPreinscripcionResidenteModel[]>('http://localhost:8080/residentes/all');
     } 
   */
+  residentesObtieneTodos(): Observable < TemporalResidente[] > {
+    return this.http.get < TemporalResidente[] > ('http://localhost:8080/residentes/all');
+  }
+  residenteObtiene(): Observable < TemporalResidente[] > {
+    return this.http.get < TemporalResidente[] > ('http://localhost:8080/residentes/residente');
+  }
 
-  residentesObtieneTodos(): Observable<TemporalResidente[]> {
-    return this.http.get<TemporalResidente[]>('http://localhost:8080/residentes/all');
+  residenteCrea(datosDeResidente){
+    return this.http.post < any[] > ('http://localhost:8080/residentes/crea', datosDeResidente);
   }
 
 }

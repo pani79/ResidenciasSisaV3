@@ -16,13 +16,13 @@
 
                                 <form [formGroup]="ingreso"  (ngsubmit)="formularioEnviar(inscripcionConcurso.value)">
                                     <mat-form-field>
-                                        <input matInput placeholder="Número de documento" formControlName="ingreso.nDocumento" required>
-                                        <mat-error *ngIf="nDocumento.invalid"></mat-error>
+                                        <input matInput placeholder="Número de documento" formControlName="numeroDocumento" required>
+                                        <mat-error *ngIf="numeroDocumento.invalid"></mat-error>
                                     </mat-form-field>
                                     
                                     <mat-form-field>
-                                        <input matInput placeholder="Código alfanumérico" formControlName="ingreso.codigoalfa" required>
-                                        <mat-error *ngIf="nDocumento.invalid"></mat-error>
+                                        <input matInput placeholder="Código alfanumérico" formControlName="codigoAlfanumerico" required>
+                                        <mat-error *ngIf="codigoAlfanumerico.invalid"></mat-error>
                                     </mat-form-field>
                                     <!--      -->
                                     <div class="contenedorDeBotones">
@@ -43,7 +43,7 @@
                         </div>
                         <div class="col-12 col-md-5 pos">
                             <div class="contenedorDeBotones"><!--  [style.display]="_pasoActual === 4 ? 'flex': 'none'" -->
-                                <app-c-comons-botonctextoeicono [infoBoton]="botones.crear" (click)="preinscripcionEnvia()"></app-c-comons-botonctextoeicono>
+                                <app-c-comons-botonctextoeicono [infoBoton]="botones.crear" (click)="residenteCrea()"></app-c-comons-botonctextoeicono>
                             </div>
                         </div>
                     </div>

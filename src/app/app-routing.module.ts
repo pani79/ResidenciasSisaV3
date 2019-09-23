@@ -4,6 +4,7 @@ import { InscripcionComponent } from 'src/app/components/residencias/inscripcion
 import { ConsultasComponent } from 'src/app/components/residencias/consultas/consultas.component';
 import { ResidenciasComponent } from 'src/app/components/residencias/residencias.component';
 import { IngresarComponent } from 'src/app/components/residencias/ingresar/ingresar.component';
+import { ResidenteCrearComponent } from 'src/app/components/residencias/residente-crear/residente-crear.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'inscripcion', component: InscripcionComponent },
   { path: 'consultas', component: ConsultasComponent },
   { path: 'residencias', component: ResidenciasComponent },
+  { path: 'residenteCrear', component: ResidenteCrearComponent },
   { path: '**', component: ResidenciasComponent }
 
 

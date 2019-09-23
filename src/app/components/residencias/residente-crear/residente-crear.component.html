@@ -1,0 +1,244 @@
+<app-paginabase [info]="infoPaginaBase"></app-paginabase>
+
+
+<!-- Formulario i -->
+<form [formGroup]="residenteNuevo" (ngsubmit)="formularioEnviar(residenteNuevo.value)" class="Formulario seccionesPaso">
+  <div class="container">
+
+
+    <div class="row residente">
+      <div class="col-12 col-md-6">
+        <div class="contenedor">
+
+          <h3>Datos generales</h3>
+
+          <div class="input-container">
+            <mat-form-field>
+              <input matInput placeholder="Nombres" formControlName="nombre" required>
+              <mat-error *ngIf="nombre.invalid"></mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="input-container">
+            <mat-form-field>
+              <input matInput placeholder="Apellidos" formControlName="apellido" required>
+              <mat-error *ngIf="apellido.invalid"></mat-error>
+            </mat-form-field>
+          </div>
+
+
+          <div class="input-container varios">
+            <label class="w20">DNI</label>
+            <mat-form-field class="w80">
+              <input matInput placeholder="Número de documento" formControlName="nDocumento" required>
+              <mat-error *ngIf="nDocumento.invalid"></mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="input-container varios">
+            <mat-form-field class="w30">
+              <mat-select formControlName="sexo" placeholder="Sexo" required>
+                <mat-option>-- Select Any --</mat-option>
+                <mat-option value="C#Corner">Femenino</mat-option>
+                <mat-option value="C#Corner">Masculino</mat-option>
+                <mat-option value="C#Corner">Indeterminado</mat-option>
+              </mat-select>
+              <mat-error>
+                <!-- <span *ngIf="!regiForm.get('Blog').valid && regiForm.get('Blog').touched">Please select any item !!!</span> -->
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w30">
+              <mat-select formControlName="estadoCivil" placeholder="Estado civil" required>
+                <mat-option>-- Select Any --</mat-option>
+                <mat-option value="C#Corner">Femenino</mat-option>
+                <mat-option value="C#Corner">Masculino</mat-option>
+                <mat-option value="C#Corner">Indeterminado</mat-option>
+              </mat-select>
+              <mat-error>
+                <!-- <span *ngIf="!regiForm.get('Blog').valid && regiForm.get('Blog').touched">Please select any item !!!</span> -->
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w10">
+              <input matInput placeholder="Hijos" formControlName="hijos" required>
+              <mat-error *ngIf="hijos.invalid"></mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="input-container varios">
+            <mat-form-field class="w45">
+              <input matInput [matDatepicker]="picker" placeholder="Nacimiento">
+              <!--   <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Nacimiento"> -->
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <label class="w10">Edad</label>
+          </div>
+
+          <div class="input-container varios">
+            <mat-form-field class="w30">
+              <mat-select formControlName="sexo" placeholder="Nacionalidad" required>
+                <mat-option>-- Select Any --</mat-option>
+                <mat-option value="C#Corner">Femenino</mat-option>
+                <mat-option value="C#Corner">Masculino</mat-option>
+                <mat-option value="C#Corner">Indeterminado</mat-option>
+              </mat-select>
+              <mat-error>
+                <!-- <span *ngIf="!regiForm.get('Blog').valid && regiForm.get('Blog').touched">Please select any item !!!</span> -->
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w30">
+              <mat-select formControlName="sexo" placeholder="País de nacimiento" required>
+                <mat-option>-- Select Any --</mat-option>
+                <mat-option value="C#Corner">Femenino</mat-option>
+                <mat-option value="C#Corner">Masculino</mat-option>
+                <mat-option value="C#Corner">Indeterminado</mat-option>
+              </mat-select>
+              <mat-error>
+                <!-- <span *ngIf="!regiForm.get('Blog').valid && regiForm.get('Blog').touched">Please select any item !!!</span> -->
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w20">
+              <mat-select formControlName="sexo" placeholder="Provincia de nacimiento" required>
+                <mat-option>-- Select Any --</mat-option>
+                <mat-option value="C#Corner">Femenino</mat-option>
+                <mat-option value="C#Corner">Masculino</mat-option>
+                <mat-option value="C#Corner">Indeterminado</mat-option>
+              </mat-select>
+              <mat-error>
+                <!-- <span *ngIf="!regiForm.get('Blog').valid && regiForm.get('Blog').touched">Please select any item !!!</span> -->
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="input-container varios">
+            <mat-form-field class="w45">
+              <input matInput placeholder="Correo electrónico" formControlName="email" required>
+              <mat-error *ngIf="email.invalid"></mat-error>
+            </mat-form-field>
+            <mat-form-field class="w45">
+              <input matInput placeholder="Confirmar correo electrónico" formControlName="email" required>
+              <mat-error *ngIf="emailConfirmar.invalid"></mat-error>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-12 col-md-6">
+
+        <div class="contenedor">
+
+          <h3>Domicilio de residencia actual</h3>
+          <div class="input-container varios">
+            <mat-form-field class="w45">
+              <mat-select formControlName="sexo" placeholder="Provincia" required>
+                <mat-option>-- Select Any --</mat-option>
+                <mat-option value="C#Corner">Femenino</mat-option>
+                <mat-option value="C#Corner">Masculino</mat-option>
+                <mat-option value="C#Corner">Indeterminado</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Localidad" formControlName="email" required>
+              <mat-error *ngIf="email.invalid"></mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="input-container varios">
+            <mat-form-field class="w70">
+              <input matInput placeholder="Dirección" formControlName="email" required>
+              <mat-error *ngIf="email.invalid"></mat-error>
+            </mat-form-field>
+            <mat-form-field class="w10">
+              <input matInput placeholder="Número" formControlName="email" required>
+              <mat-error *ngIf="email.invalid"></mat-error>
+            </mat-form-field>
+            <mat-form-field class="w10">
+              <input matInput placeholder="Piso" formControlName="email" required>
+              <mat-error *ngIf="email.invalid"></mat-error>
+            </mat-form-field>
+            <mat-form-field class="w10">
+              <input matInput placeholder="Departamento" formControlName="email" required>
+              <mat-error *ngIf="email.invalid"></mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="input-container varios">
+            <mat-form-field class="w20">
+              <mat-select formControlName="sexo" placeholder="Teléfono tipo" required>
+                <mat-option>-- Select Any --</mat-option>
+                <mat-option value="C#Corner">Femenino</mat-option>
+                <mat-option value="C#Corner">Masculino</mat-option>
+                <mat-option value="C#Corner">Indeterminado</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Teléfono número" formControlName="email" required>
+              <mat-error *ngIf="email.invalid"></mat-error>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <!-- </div>
+            
+                <div class="col-12 col-md-6"> -->
+
+        <div class="contenedor">
+
+          <h3>Profesión actual</h3>
+          <div class="input-container varios">
+            <mat-form-field>
+              <input matInput placeholder="Titulo" formControlName="email" required>
+              <mat-error *ngIf="email.invalid"></mat-error>
+            </mat-form-field>
+            <mat-form-field class="w30">
+              <mat-select formControlName="sexo" placeholder="Tipo de matrícula" required>
+                <mat-option>-- Select Any --</mat-option>
+                <mat-option value="C#Corner">Femenino</mat-option>
+                <mat-option value="C#Corner">Masculino</mat-option>
+                <mat-option value="C#Corner">Indeterminado</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="input-container varios">
+            <mat-form-field class="w30">
+              <input matInput placeholder="Año de ingreso a la carrera" formControlName="email" required>
+              <mat-error *ngIf="email.invalid"></mat-error>
+            </mat-form-field>
+            <mat-form-field class="w30">
+              <input matInput placeholder="Promedio de la carrera con aplazos" formControlName="email" required>
+              <mat-error *ngIf="email.invalid"></mat-error>
+            </mat-form-field>
+            <mat-form-field class="w30">
+              <mat-select formControlName="sexo" placeholder="Titulo en trámite" required>
+                <mat-option>-- Select Any --</mat-option>
+                <mat-option value="C#Corner">Femenino</mat-option>
+                <mat-option value="C#Corner">Masculino</mat-option>
+                <mat-option value="C#Corner">Indeterminado</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    
+    <div class="col-12 col-md-5 pos">
+      <div class="contenedorDeBotones">
+        <!--  [style.display]="_pasoActual === 4 ? 'flex': 'none'" -->
+        <app-c-comons-botonctextoeicono [infoBoton]="botones.crear" (click)="residenteCrear()">
+        </app-c-comons-botonctextoeicono>
+      </div>
+    </div>
+
+    {{residenteNuevo.value | json}}
+
+
+  </div>
+</form>

@@ -1,0 +1,141 @@
+
+.input-container {      display: flex;  flex-direction: column;}
+.input-container > * {  width: 100%; }
+
+.input-container.varios {       display: flex;  flex-direction: row;}
+.input-container.varios > * {   width: 100%;  margin: 0 10px;}
+.input-container.varios > *:first-child {  margin-left: 0px; }
+.input-container.varios > *:last-child {  margin-right: 0px; }
+
+.input-container.varios > label {  text-align: right;  padding-top: 13px;}
+
+.input-container.varios > .w10 {  width: 10%; }
+.input-container.varios > .w20 {  width: 20%; }
+.input-container.varios > .w30 {  width: 30%; }
+.input-container.varios > .w40 {  width: 40%; }
+.input-container.varios > .w45 {  width: 45%; }
+.input-container.varios > .w50 {  width: 50%; }
+.input-container.varios > .w70 {  width: 70%; }
+.input-container.varios > .w80 {  width: 80%; }
+.input-container.varios > .w90 {  width: 90%; }
+
+.panelPasos > .contenedor > div > .contenedorDePaneles {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
+}
+/* .panelPasos { background-color: red !important;} */
+
+
+form h2{ margin: 10px 0 20px 0; }
+
+form .row > .col-12 > .contenedor,
+form .row > .col-md-6 > .contenedor,
+form .row > .col-6 > .contenedor{ 
+	background-color: #e8e8e8; 
+	border-radius: 8px;
+	margin: 10px;
+	padding: 20px;
+	box-shadow: 0 1px 4px rgba(0,0,0,.5) !important;
+}
+
+/* form > *{	border: thin orange dotted;} */
+/* 
+form .item > *,
+form .item > * > *{	border: thin blue dotted;}
+ */
+form .item .columna{	display: flex; flex-direction: column; }
+
+.estadoInscripciones{	display: flex; flex-direction: row; cursor: pointer;  }
+.estadoInscripciones > span{	font-size: 32px; color: #003366; margin-right: 20px; }
+.estadoInscripciones > p{		margin-top: 8px; }
+
+.contenedor > h3 {  margin: 40px 0px 30px 0px; /* border: thin blue dotted; */ }
+.contenedor > h3:first-child {  margin: 0px 0px 30px 0px;  }
+.contenedor > h3:only-child {  margin: 0px 0px 30px 0px; }
+
+
+
+.listado{ 
+	background-color: #e8e8e8; 
+	border-radius: 8px;
+	margin: 10px;
+	padding: 20px;
+	box-shadow: 0 1px 4px rgba(0,0,0,.5) !important;
+}
+
+.fila{
+    display: grid;
+    grid-template-columns: 5% 25% 25% 25% 5% 5% 5% 5%;
+    border-bottom: rgba(0, 0, 0, .2) 2px solid;
+}
+.fila > *{
+    /* border-right: rgba(0, 0, 0, .2) 1px solid;   */
+    padding: 4px 10px;
+}
+.fila > *:last-child{
+    border-right: none;
+}
+.acciones{  display: flex; flex-direction: row; }
+.acciones .al{  
+	width: 24px;
+	height: 24px;
+	background-color: #009933;
+	border-radius: 16px;
+	cursor: pointer;
+}
+.acciones .al > span{ 
+	color: white;
+    font-size: 16px;
+    position: relative;
+    top: 4px;
+    left: 4px;
+}
+
+
+.Formulario .item{  display: flex; flex-direction: row !important; margin-bottom: 8px; }
+.Formulario .item > *{  display: inline-flex; margin-left: 8px; }
+.Formulario .item > *:first-child{  margin-left: 0px; }
+.Formulario .item > * > *{          margin: auto 0px !important; }
+
+.Formulario .item .w5_{     width: 5% !important; }
+.Formulario .item .w10_{		width: 10% !important; }
+.Formulario .item .w15_{		width: 15% !important; }
+.Formulario .item .w20_{		width: 20% !important; }
+.Formulario .item .w25_{		width: 25% !important; }
+.Formulario .item .w30_{		width: 30% !important; }
+.Formulario .item .w35_{		width: 35% !important; }
+.Formulario .item .w40_{		width: 40% !important; }
+.Formulario .item .w50_{		width: 50% !important; }
+.Formulario .item .w60_{		width: 60% !important; }
+.Formulario .item .w65_{		width: 65% !important; }
+.Formulario .item .w70_{		width: 70% !important; }
+.Formulario .item .w75_{		width: 75% !important; }
+.Formulario .item .w80_{		width: 80% !important; }
+.Formulario .item .w85_{		width: 85% !important; }
+.Formulario .item .w90_{		width: 90% !important; }
+.Formulario .item .w95_{		width: 95% !important; }
+.Formulario .item .w100_{		width: 100% !important; }
+
+.Formulario .item p,
+.Formulario .item label{      width: 100%; text-align: right; }
+.Formulario .item input{      
+  width: 100%; 
+  padding: 9px 10px; 
+  background-color: white; 
+}
+.Formulario .item input,
+.Formulario .item select{           
+  width: 100%; 
+  padding: 9px 10px;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 4px;  
+}
+.Formulario .item input > *{  color: black; }
+
+.Formulario .item .rb{      display: flex; flex-direction: column; }
+.Formulario .item .rb > *{  display: flex; flex-direction: row; }
+.Formulario .item .rb > * input{  width: 20px; margin-right: 4px; }
+.Formulario .item .rb > * label{  text-align: left; }
+
+
+.Formulario .menuFormulario{  margin: 20px 0 40px 0; }

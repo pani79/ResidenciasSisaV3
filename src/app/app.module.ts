@@ -30,6 +30,7 @@ import { ListaComponent } from './components/commons/lista/lista.component';
 import { ContenidoComponent } from './components/commons/lista/contenido/contenido.component';
 import { PanelPasosComponent } from './components/commons/panel-pasos/panel-pasos.component';
 import { IngresarComponent } from './components/residencias/ingresar/ingresar.component';
+import { ResidenteCrearComponent } from './components/residencias/residente-crear/residente-crear.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { IngresarComponent } from './components/residencias/ingresar/ingresar.co
     ListaComponent,
     ContenidoComponent,
     PanelPasosComponent,
-    IngresarComponent
+    IngresarComponent,
+    ResidenteCrearComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ export class IngresarComponent implements OnInit {
   ingreso: FormGroup;
   residentes: TemporalResidente[] = [];
   residente: TemporalResidente;
-  nDocumento: string = '';
+  numeroDocumento: string = '';
   codigoAlfanumerico: string = '';
 
   infoPaginaBase: string[] = [
@@ -54,17 +54,19 @@ export class IngresarComponent implements OnInit {
     .subscribe(data => this.residentes = data);
 
     this.ingreso = this.fb.group({
-      nDocumento: [''],
+      numeroDocumento: [''],
       codigoAlfanumerico: ['']
     });
 
   }
 
-  formularioEnviar() {  this.router.navigateByUrl('consultas'); }
+  residenteCrea() {  this.router.navigateByUrl('residenteCrear'); }
 
   ingresar() {
     //alert('(');
     this.router.navigateByUrl('residencias');
   }
+
+  formularioEnviar() {}
 
 }
