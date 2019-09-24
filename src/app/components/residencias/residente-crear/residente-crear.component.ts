@@ -21,6 +21,8 @@ export class ResidenteCrearComponent implements OnInit {
     'Para información sobre los distintos concursos de residencias consulte la web del <a href="http://www.msal.gov.ar/residencias" target="_blank">Ministerio de Salud de la Nación</a>.'
   ];
 
+  muestraFormularioResidente = false;
+  traeInfo: FormGroup;
   residenteNuevo: FormGroup;
 /*   nombre: string = '';
   apellido: string = '';
@@ -32,7 +34,8 @@ export class ResidenteCrearComponent implements OnInit {
   emailConfirmar: string = ''; */
 
   botones = {
-    crear: ['boton boton_pos', 'mod_usuarios', 'Crear residente']
+    crear: ['boton boton_pos', 'mod_usuarios', 'Crear residente'],
+    renaper: ['boton boton_general', 'bot_ico_renaper', 'Obtener de Renaper']
   };
 
   constructor(
@@ -41,6 +44,12 @@ export class ResidenteCrearComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.traeInfo = this.fb.group({
+      nDocumento: [''],
+      sexo: [''],
+      fechaNacmiento: ['']
+    });
 
     this.residenteNuevo = this.fb.group({
       nombre: [''],
@@ -71,6 +80,10 @@ export class ResidenteCrearComponent implements OnInit {
         response => console.log('Grade champion residente', response),
         error => console.error('A donde vas mostro?', error)
       );
+  }
+
+  obtieneInfo() {
+    this.muestraFormularioResidente = true;
   }
 
 }
